@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ConventionCentreImage extends Model
 {
-     protected $fillable = [
+    protected $fillable = [
         'convention_centre_id',
         'image',
         'alt_text',
@@ -17,5 +17,4 @@ class ConventionCentreImage extends Model
     {
         return $this->belongsTo(ConventionCentre::class);
     }
-     
 }

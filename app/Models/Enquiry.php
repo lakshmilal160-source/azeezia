@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Enquiry extends Model
 {
@@ -19,4 +20,19 @@ class Enquiry extends Model
         'status',
         'admin_notes',
     ];
+
+    public function conventionCentre(): BelongsTo
+    {
+        return $this->belongsTo(ConventionCentre::class);
+    }
+
+    public function resort(): BelongsTo
+    {
+        return $this->belongsTo(Resort::class);
+    }
+
+    public function organicFarm(): BelongsTo
+    {
+        return $this->belongsTo(OrganicFarm::class);
+    }
 }

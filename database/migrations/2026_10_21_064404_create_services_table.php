@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-         Schema::create('services', function (Blueprint $table) {
+        Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->text('short_description')->nullable();
             $table->longText('description')->nullable();
             $table->string('image')->nullable();
+            $table->json('points')->nullable(); // <-- Added to store the tags/points array
             $table->unsignedInteger('sort_order')->default(0);
             $table->boolean('is_active')->default(true);
             $table->timestamps();

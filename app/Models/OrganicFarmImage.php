@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrganicFarmImage extends Model
 {
-     protected $fillable = [
+    protected $fillable = [
         'organic_farm_id',
         'image',
         'alt_text',

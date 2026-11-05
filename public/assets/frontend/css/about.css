@@ -1,0 +1,1092 @@
+/* ==========================================================================
+   AZEEZIA CONVENTION CENTRE & RESORT - ABOUT US PAGE STYLES
+   Master Stylesheet: High-Fashion Editorial, Luxury Serif & Warm Sand
+   Inspired by Reference Image (Exact Circular Cluster, Cinematic Banner)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. BASE STYLES & TOKENS
+   -------------------------------------------------------------------------- */
+body.about-page {
+  --about-section-padding-y: var(--section-padding-y, clamp(50px, 5vw, 68px));
+  --color-sand-bg: #FAF8F5;
+  --color-sand-light: #FFFFFF;
+  --color-sand-border: #DDE7D3;
+  --color-sand-muted: #EBF2E3;
+  --color-logo-green: #97C026;
+  --color-logo-green-hover: #AADB34;
+  --color-logo-green-dark: #7CA01D;
+  --color-plum-dark: #12200E;
+  --color-text-dark: #192415;
+  --color-text-muted: #566950;
+  --color-text-champagne: #E6F3CC;
+  
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-script: 'Alex Brush', cursive;
+
+  background-color: var(--color-sand-bg);
+  color: var(--color-text-dark);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Ensure the fixed header looks frosted and dark like the contact page */
+body.about-page .site-header {
+  background-color: rgba(12, 22, 9, 0.96) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(183, 217, 45, 0.2) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3) !important;
+  padding: 10px 0 !important;
+}
+
+body.about-page main {
+  padding-top: 0;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 1 — CINEMATIC FULL-WIDTH BANNER
+   Exact Reference Composition: "CREATING YOUR MEMORIES"
+   -------------------------------------------------------------------------- */
+.about-banner-section {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  min-height: 300px;
+  background-color: #0E1710;
+  display: flex;
+  align-items: flex-end;
+  padding-top: 80px;
+  padding-bottom: clamp(24px, 3vw, 36px);
+  overflow: hidden;
+  border-bottom: 1px solid rgba(183, 217, 45, 0.2);
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.about-banner-scenery {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.about-banner-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+  filter: none;
+  transform: none;
+}
+
+/* Bottom-only luxury dark gradient overlay: upper half completely clear */
+.about-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 46%,
+    rgba(10, 18, 9, 0.42) 66%,
+    rgba(10, 18, 9, 0.82) 86%,
+    rgba(10, 18, 9, 0.95) 100%
+  );
+  pointer-events: none;
+}
+
+.about-banner-container {
+  width: 100%;
+  max-width: var(--container-wide, 1400px);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 70px);
+  position: relative;
+  z-index: 5;
+}
+
+.about-banner-grid {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.about-banner-eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 0.82vw, 0.84rem);
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-logo-green);
+  margin-bottom: clamp(8px, 1.2vw, 14px);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.about-banner-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+}
+
+.banner-title-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.about-banner-title .title-line {
+  display: block;
+}
+
+.about-banner-desc-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: clamp(6px, 1.2vw, 16px);
+}
+
+.about-banner-desc {
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 0.84vw, 0.84rem);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  line-height: 1.78;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.94);
+  margin: 0;
+  max-width: 440px;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.75);
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 2 — ABOUT AZEEZIA / WELCOME INTRODUCTION
+   Spacious, warm off-white, aligned toward upper-left
+   -------------------------------------------------------------------------- */
+.about-intro-section {
+  position: relative;
+  background-color: #FAF8F4;
+  padding-top: clamp(60px, 7vw, 100px);
+  padding-bottom: clamp(30px, 4vw, 50px);
+}
+
+.about-intro-container {
+  width: 100%;
+  max-width: var(--container-wide, 1400px);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 70px);
+}
+
+.about-intro-content {
+  max-width: 680px;
+}
+
+.about-intro-lead {
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  font-weight: 400;
+  line-height: 1.65;
+  color: #2D3D2A;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 3 — CIRCULAR BRAND HIGHLIGHTS (EXACT REFERENCE ARRANGEMENT)
+   Organic constellation of overlapping circles
+   -------------------------------------------------------------------------- */
+.about-circles-section {
+  position: relative;
+  background-color: #FAF8F4;
+  padding-top: clamp(20px, 3vw, 40px);
+ 
+  overflow: hidden;
+}
+
+.about-circles-container {
+  width: 100%;
+  max-width: var(--container-wide, 1400px);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 70px);
+  position: relative;
+}
+
+/* Cluster Canvas Frame */
+.circles-cluster-stage {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  height: clamp(440px, 48vw, 560px);
+  margin: 0 auto;
+}
+
+/* Base Circle Component */
+.brand-circle {
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  box-shadow: 0 14px 40px rgba(22, 38, 20, 0.06);
+  transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.brand-circle:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 22px 50px rgba(22, 38, 20, 0.12);
+}
+
+/* 1. Large Central Circle (2,000+ Celebrations / Capacity) */
+.circle-central {
+  width: clamp(280px, 32vw, 380px);
+  height: clamp(280px, 32vw, 380px);
+  background: #FFFFFF;
+  border: 1px solid rgba(153, 175, 131, 0.28);
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  padding: 24px;
+}
+
+.circle-central:hover {
+  transform: translate(-50%, -52%) scale(1.02);
+}
+
+.circle-central .stat-number {
+  font-family: var(--font-serif);
+  font-size: clamp(3.8rem, 5.5vw, 5.2rem);
+  font-weight: 400;
+  color: #12200E;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.circle-central .stat-label {
+  font-family: var(--font-sans);
+  font-size: clamp(0.68rem, 0.8vw, 0.74rem);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #5A6D54;
+}
+
+/* 2. Left Medium Circle (37 Acres of Nature) */
+.circle-stat-left {
+  width: clamp(190px, 22vw, 240px);
+  height: clamp(190px, 22vw, 240px);
+  background: #FFFFFF;
+  border: 1px solid rgba(153, 175, 131, 0.24);
+  top: 32%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  padding: 16px;
+}
+
+.circle-stat-left .stat-number {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 3.8vw, 3.6rem);
+  font-weight: 400;
+  color: #12200E;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.circle-stat-left .stat-label {
+  font-family: var(--font-sans);
+  font-size: clamp(0.62rem, 0.72vw, 0.68rem);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #5A6D54;
+  line-height: 1.4;
+}
+
+/* 3. Right Medium Circle (3 Unique Experiences) */
+.circle-stat-right {
+  width: clamp(190px, 22vw, 240px);
+  height: clamp(190px, 22vw, 240px);
+  background: #FFFFFF;
+  border: 1px solid rgba(153, 175, 131, 0.24);
+  top: 38%;
+  left: 82%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  padding: 16px;
+}
+
+.circle-stat-right .stat-number {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 3.8vw, 3.6rem);
+  font-weight: 400;
+  color: #12200E;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.circle-stat-right .stat-label {
+  font-family: var(--font-sans);
+  font-size: clamp(0.62rem, 0.72vw, 0.68rem);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #5A6D54;
+  line-height: 1.4;
+}
+
+/* 4. Top-Right Circular Photo (Happy Celebration) */
+.circle-img-top {
+  width: clamp(120px, 14vw, 155px);
+  height: clamp(120px, 14vw, 155px);
+  overflow: hidden;
+  border: 3px solid #FFFFFF;
+  top: 14%;
+  left: 66%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+  box-shadow: 0 10px 30px rgba(22, 38, 20, 0.12);
+}
+
+.circle-img-top img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.circle-img-top:hover img {
+  transform: scale(1.08);
+}
+
+/* 5. Bottom-Left Circular Photo (Resort Villa Poolside) */
+.circle-img-bottom {
+  width: clamp(100px, 12vw, 135px);
+  height: clamp(100px, 12vw, 135px);
+  overflow: hidden;
+  border: 3px solid #FFFFFF;
+  top: 72%;
+  left: 26%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+  box-shadow: 0 10px 30px rgba(22, 38, 20, 0.12);
+}
+
+.circle-img-bottom img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.circle-img-bottom:hover img {
+  transform: scale(1.08);
+}
+
+/* 6. Bottom-Right Interactive About / Explore Button Circle */
+.circle-btn-about {
+  width: clamp(105px, 12vw, 140px);
+  height: clamp(105px, 12vw, 140px);
+  background: transparent;
+  border: 1px solid rgba(153, 175, 131, 0.45);
+  top: 75%;
+  left: 74%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+  text-decoration: none;
+  color: #12200E;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.circle-btn-about .btn-about-text {
+  font-family: var(--font-serif);
+  font-size: clamp(0.85rem, 1vw, 1rem);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #12200E;
+  transition: color 0.3s ease;
+}
+
+.circle-btn-about:hover {
+  background: #B7D92D;
+  border-color: #B7D92D;
+  transform: translate(-50%, -52%) scale(1.06);
+  box-shadow: 0 8px 25px rgba(183, 217, 45, 0.4);
+}
+
+.circle-btn-about:hover .btn-about-text {
+  color: #07140B;
+}
+
+/* 7. Tiny Soft Ambient Dot (Far Left) */
+.circle-ambient-dot {
+  width: clamp(34px, 4vw, 50px);
+  height: clamp(34px, 4vw, 50px);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(153, 175, 131, 0.15);
+  top: 60%;
+  left: 8%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 4 — OUR STORY (EXACT ARCH COMPOSITION FROM REFERENCE)
+   "PLAN YOUR FOREVER, BETTER"
+   Left text + Central Tall Arch Window Photo + Right Floating Landscape Photo
+   -------------------------------------------------------------------------- */
+.arch-story-section {
+  position: relative;
+  background-color: #FAF8F4;
+  padding: var(--about-section-padding-y) 0;
+  
+  overflow: hidden;
+}
+
+.arch-story-container {
+  width: 100%;
+  max-width: var(--container-wide, 1400px);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 70px);
+}
+
+.arch-story-layout {
+  display: grid;
+  grid-template-columns: 1.15fr auto auto;
+  gap: clamp(30px, 4vw, 64px);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arch-story-content {
+  max-width: 480px;
+}
+
+.arch-story-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-nature-dark, #6E911A);
+  margin-bottom: 14px;
+  display: block;
+}
+
+.arch-story-title {
+  font-family: var(--font-serif);
+  font-size: var(--section-title-size, clamp(2.3rem, 4.3vw, 4.9rem));
+  line-height: clamp(48px, 5.5vw, 80px);
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--section-title-color, #12200E);
+  margin: 0 0 20px 0;
+}
+
+.arch-story-title .title-row {
+  display: block;
+}
+
+.arch-story-desc {
+  font-family: var(--font-sans);
+  font-size: 0.94rem;
+  line-height: 1.75;
+  color: var(--color-text-muted, #566950);
+  margin: 0 0 28px 0;
+}
+
+/* Reference Minimal Circular Wireframe Button: Circle with gold dot + text */
+.arch-story-btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.arch-story-btn-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #C4AB8E;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.arch-story-btn-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #C4AB8E;
+  transition: transform 0.3s ease;
+}
+
+.arch-story-btn-text {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #8C7355;
+  transition: color 0.3s ease;
+}
+
+.arch-story-btn-link:hover .arch-story-btn-circle {
+  transform: scale(1.08);
+  border-color: #97C026;
+  background: rgba(151, 192, 38, 0.1);
+}
+
+.arch-story-btn-link:hover .arch-story-btn-dot {
+  background: #97C026;
+}
+
+.arch-story-btn-link:hover .arch-story-btn-text {
+  color: #12200E;
+}
+
+/* Central Arch Window Frame */
+.arch-center-frame {
+  width: clamp(260px, 25vw, 330px);
+  height: clamp(380px, 36vw, 480px);
+  border-radius: 200px 200px 0 0;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(18, 32, 14, 0.1);
+  position: relative;
+  border: 1px solid rgba(196, 171, 142, 0.3);
+}
+
+.arch-center-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.arch-center-frame:hover img {
+  transform: scale(1.05);
+}
+
+/* Right Floating Landscape Frame */
+.arch-right-frame {
+  width: clamp(190px, 18vw, 250px);
+  height: 400px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(18, 32, 14, 0.08);
+  border: 1px solid rgba(196, 171, 142, 0.25);
+  align-self: center;
+}
+
+.arch-right-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.arch-right-frame:hover img {
+  transform: scale(1.06);
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 5 — MISSION, VISION & VALUES (3 ARCHED PEDESTAL CARDS)
+   Exact Composition from Reference:
+   Eyebrow + Grand Serif Title + Decorative Wire Ring + 3 Arched Pedestal Cards
+   -------------------------------------------------------------------------- */
+.arch-mvv-section {
+  position: relative;
+  background-color: #FAF8F4;
+  padding: 70px 0px 90px 0px;
+ 
+  overflow: hidden;
+}
+
+.arch-mvv-container {
+  width: 100%;
+  max-width: var(--container-wide, 1400px);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 70px);
+  position: relative;
+}
+
+.arch-mvv-header {
+  text-align: center;
+  position: relative;
+  margin-bottom: clamp(48px, 6vw, 76px);
+  z-index: 3;
+}
+
+.arch-mvv-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-nature-dark, #6E911A);
+  margin-bottom: 14px;
+  display: block;
+}
+
+.arch-mvv-title {
+  font-family: var(--font-serif);
+  font-size: var(--section-title-size, clamp(2.3rem, 4.3vw, 4.9rem));
+  line-height: clamp(48px, 5.5vw, 80px);
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--section-title-color, #12200E);
+  margin: 0;
+}
+
+/* Decorative Gold Wire Ring Motif */
+.arch-mvv-deco-ring {
+  position: absolute;
+  width: clamp(140px, 15vw, 190px);
+  height: clamp(140px, 15vw, 190px);
+  border-radius: 50%;
+  border: 1px solid rgba(196, 171, 142, 0.45);
+  top: clamp(-30px, -3vw, -45px);
+  right: clamp(12%, 18vw, 24%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.arch-mvv-deco-pip {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #C4AB8E;
+  top: 18px;
+  right: 22px;
+}
+
+/* 3-Column Arched Pedestal Cards Grid */
+.arch-mvv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, 3.5vw, 42px);
+  max-width: 1080px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.arch-mvv-card {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.arch-mvv-card:hover {
+  transform: translateY(-8px);
+}
+
+.arch-card-top-photo {
+  width: 100%;
+  height: clamp(230px, 25vw, 290px);
+  border-radius: 150px 150px 0 0;
+  overflow: hidden;
+  background-color: #0d2310;
+  box-shadow: 0 10px 25px rgba(18, 32, 14, 0.06);
+}
+
+.arch-card-top-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.7s ease;
+}
+
+.arch-mvv-card:hover .arch-card-top-photo img {
+  transform: scale(1.06);
+}
+
+/* Warm Linen/Beige Pedestal Box */
+.arch-card-pedestal {
+  background: #EFE9E0;
+  border-radius: 0 0 12px 12px;
+  padding: clamp(24px, 2.8vw, 32px) clamp(16px, 2vw, 24px) clamp(28px, 3vw, 36px);
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(18, 32, 14, 0.05);
+  border: 1px solid rgba(196, 171, 142, 0.25);
+  border-top: none;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.arch-card-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 1.45vw, 1.5rem);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #12200E;
+  margin: 0 0 10px 0;
+}
+
+.arch-card-desc {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--color-text-muted, #566950);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 7 — GUEST TESTIMONIALS (EDITORIAL CAROUSEL)
+   "WORDS FROM OUR GUESTS"
+   -------------------------------------------------------------------------- */
+.about-testimonials-section {
+  position: relative;
+  background-color: #FAF8F4;
+  padding: 50px 0 90px 0;
+
+}
+
+.about-testi-container {
+  width: 100%;
+  max-width: var(--container-wide, 1400px);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 70px);
+}
+
+.about-testi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: clamp(36px, 5vw, 60px);
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.about-testi-heading {
+  font-family: var(--font-serif);
+  font-size: var(--section-title-size, clamp(2.3rem, 4.3vw, 4.9rem));
+  line-height: clamp(48px, 5.5vw, 80px);
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #12200E;
+  margin: 0;
+}
+
+.about-testi-subheading {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #556B4E;
+  margin: 0;
+}
+
+.about-testi-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.about-testi-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1.5px solid #99AF83;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #12200E;
+  transition: all 0.3s ease;
+}
+
+.about-testi-btn:hover {
+  background: #B7D92D;
+  border-color: #B7D92D;
+  color: #07140B;
+}
+
+/* 3-Column Display Row matching homepage architecture */
+.about-testi-stage {
+  display: grid;
+  grid-template-columns: 240px 1fr 240px;
+  gap: clamp(20px, 3vw, 40px);
+  align-items: center;
+}
+
+.about-testi-arch {
+  height: 340px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(18, 32, 14, 0.08);
+}
+
+.about-testi-arch.arch-left {
+  border-top-right-radius: 140px;
+  border-bottom-right-radius: 45px;
+}
+
+.about-testi-arch.arch-right {
+  border-top-left-radius: 140px;
+  border-top-right-radius: 140px;
+}
+
+.about-testi-arch img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-testi-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: clamp(32px, 4.5vw, 48px);
+  box-shadow: 0 14px 40px rgba(18, 32, 14, 0.06);
+  border: 1px solid var(--color-sand-border);
+  position: relative;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.about-testi-stars {
+  color: #97C026;
+  font-size: 1.15rem;
+  letter-spacing: 4px;
+  margin-bottom: 18px;
+}
+
+.about-testi-quote {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 1.7vw, 1.55rem);
+  font-weight: 400;
+  line-height: 1.5;
+  color: #162618;
+  margin: 0 0 24px 0;
+}
+
+.about-testi-author-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.about-testi-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.about-testi-name {
+  font-family: var(--font-sans);
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: #12200E;
+  margin-bottom: 2px;
+}
+
+.about-testi-event {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #72856B;
+}
+
+.about-testi-giant-quote {
+  position: absolute;
+  right: 32px;
+  bottom: 12px;
+  font-family: var(--font-serif);
+  font-size: 5rem;
+  line-height: 1;
+  color: #99AF83;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN (TABLET & MOBILE AUDIT)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .about-banner-title {
+    font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  }
+
+  .arch-story-layout {
+    grid-template-columns: 1fr auto;
+    gap: 36px;
+  }
+
+  .arch-right-frame {
+    display: none;
+  }
+
+  .arch-mvv-grid {
+    gap: 20px;
+  }
+
+  .about-testi-stage {
+    grid-template-columns: 180px 1fr 180px;
+    gap: 20px;
+  }
+
+  .about-testi-arch {
+    height: 280px;
+  }
+}
+
+@media (max-width: 900px) {
+  .about-banner-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .about-banner-desc-col {
+    padding-bottom: 0;
+  }
+
+  .about-banner-desc {
+    max-width: 100%;
+  }
+
+  /* Reorganize Circular Stage for Tablet & Mobile screens */
+  .circles-cluster-stage {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  .brand-circle {
+    position: static;
+    transform: none !important;
+  }
+
+  .circle-central {
+    order: 1;
+    width: 260px;
+    height: 260px;
+  }
+
+  .circle-stat-left,
+  .circle-stat-right {
+    order: 2;
+    width: 180px;
+    height: 180px;
+  }
+
+  .circle-img-top,
+  .circle-img-bottom {
+    order: 3;
+    width: 130px;
+    height: 130px;
+  }
+
+  .circle-btn-about {
+    order: 4;
+    width: 130px;
+    height: 130px;
+  }
+
+  .circle-ambient-dot {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-banner-section {
+    height: auto;
+    min-height: 240px;
+    padding-top: 72px;
+    padding-bottom: 22px;
+  }
+
+  .about-banner-title {
+    font-size: clamp(1.75rem, 6.5vw, 2.5rem);
+    line-height: 1.08;
+  }
+
+  .banner-title-line {
+    display: block;
+    white-space: nowrap;
+  }
+
+  .arch-story-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 32px;
+  }
+
+  .arch-story-content {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .arch-story-btn-link {
+    justify-content: center;
+  }
+
+  .arch-center-frame {
+    margin: 0 auto;
+    width: clamp(240px, 75vw, 300px);
+    height: clamp(340px, 90vw, 420px);
+  }
+
+  .arch-story-title,
+  .arch-mvv-title,
+  .about-testi-heading {
+    font-size: clamp(1.75rem, 7.2vw, 2.5rem);
+    line-height: clamp(36px, 9vw, 48px);
+  }
+
+  .arch-mvv-deco-ring {
+    display: none;
+  }
+
+  .arch-mvv-grid {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin: 0 auto;
+    gap: 32px;
+  }
+
+  .about-testi-stage {
+    grid-template-columns: 1fr;
+  }
+
+  .about-testi-arch {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .banner-title-line {
+    white-space: normal;
+  }
+}

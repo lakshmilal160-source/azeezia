@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class OrganicFarm extends Model
 {
-     protected $fillable = [
+    protected $fillable = [
         'name',
         'slug',
         'short_description',
@@ -16,6 +17,7 @@ class OrganicFarm extends Model
         'activities',
         'facilities',
         'contact_phone',
+        'email',
         'is_active',
     ];
 
@@ -27,5 +29,10 @@ class OrganicFarm extends Model
             'facilities' => 'array',
             'is_active' => 'boolean',
         ];
+    }
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(OrganicFarmImage::class);
     }
 }

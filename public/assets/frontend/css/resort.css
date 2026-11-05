@@ -1,0 +1,982 @@
+/* ==========================================================================
+   AZEEZIA RESORT & PRIVATE POOL VILLAS
+   Master Stylesheet - High-End Architectural & Interior Design Language
+   Inspired by Reference Design:
+   - Moody Full-Width Hero Interior with Floating Badges
+   - Realized Projects / Villa Showcase Slider with Peeking Frames
+   - 3-Column Architectural Amenities Cards
+   - Panoramic Sunset Horizon Full-Width Feature
+   - Asymmetric Bedroom & Bath Detail Composition
+   - Typography & Palette strictly matching About Us Page
+   - Buttons strictly matching Homepage (.az-signature-btn)
+   - All Headings Uppercase with Dual-Tone Accents
+   - Fully scoped to body.resort-page (Zero side-effects on live design)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. DESIGN TOKENS & BASE STYLES (IDENTICAL TO ABOUT US PAGE)
+   -------------------------------------------------------------------------- */
+body.resort-page {
+  --resort-section-padding-y: var(--section-padding-y, clamp(50px, 5vw, 68px));
+
+  /* Colors identical to About Us page */
+  --color-sand-bg: #FAF8F5;
+  --color-sand-light: #FFFFFF;
+  --color-sand-border: #DDE7D3;
+  --color-sand-muted: #EBF2E3;
+  --color-logo-green: #97C026;
+  --color-logo-green-hover: #AADB34;
+  --color-logo-green-dark: #7CA01D;
+  --color-plum-dark: #12200E;
+  --color-plum-main: #1A2E16;
+  --color-text-dark: #192415;
+  --color-text-muted: #566950;
+  --color-text-champagne: #E6F3CC;
+  --color-nature-soft: #F0F7E4;
+
+  /* Fonts identical to About Us page */
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-script: 'Alex Brush', cursive;
+
+  background-color: var(--color-sand-bg);
+  color: var(--color-text-dark);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Ensure sticky header integrates seamlessly */
+body.resort-page .site-header {
+  background-color: rgba(12, 22, 9, 0.96) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border-bottom: 1px solid rgba(151, 192, 38, 0.25) !important;
+}
+
+body.resort-page main {
+  padding-top: 0;
+}
+
+/* Ensure all headings on the page are uppercase matching About Us page */
+body.resort-page h1,
+body.resort-page h2,
+body.resort-page h3,
+body.resort-page h4,
+body.resort-page .resort-section-title,
+body.resort-page .resort-hero-title,
+body.resort-page .resort-card-title,
+body.resort-page .resort-panorama-title {
+  text-transform: uppercase !important;
+  letter-spacing: 1px;
+}
+
+/* --------------------------------------------------------------------------
+   2. TOP CINEMATIC BANNER (IDENTICAL TO ABOUT US PAGE BANNER)
+   -------------------------------------------------------------------------- */
+.resort-page .about-banner-section {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  min-height: 300px;
+  background-color: #0E1710;
+  display: flex;
+  align-items: flex-end;
+  padding-top: 80px;
+  padding-bottom: clamp(24px, 3vw, 36px);
+  overflow: hidden;
+  border-bottom: 1px solid rgba(183, 217, 45, 0.2);
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.resort-page .about-banner-scenery {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.resort-page .about-banner-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 48%;
+  filter: none;
+  transform: none;
+}
+
+.resort-page .about-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 42%,
+    rgba(10, 18, 9, 0.42) 64%,
+    rgba(10, 18, 9, 0.82) 86%,
+    rgba(10, 18, 9, 0.96) 100%
+  );
+  pointer-events: none;
+}
+
+.resort-page .about-banner-container {
+  width: 100%;
+  max-width: var(--container-wide, 1400px);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 70px);
+  position: relative;
+  z-index: 5;
+}
+
+.resort-page .about-banner-grid {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.resort-page .about-banner-eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 0.82vw, 0.84rem);
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-logo-green);
+  margin-bottom: clamp(8px, 1.2vw, 14px);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.resort-page .about-banner-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+}
+
+.resort-page .banner-title-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.resort-page .about-banner-desc-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: clamp(6px, 1.2vw, 16px);
+}
+
+.resort-page .about-banner-desc {
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 0.84vw, 0.84rem);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  line-height: 1.78;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.94);
+  margin: 0;
+  max-width: 440px;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.75);
+}
+
+@media (max-width: 900px) {
+  .resort-page .about-banner-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .resort-page .about-banner-desc-col {
+    padding-bottom: 0;
+  }
+  .resort-page .about-banner-desc {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .resort-page .about-banner-section {
+    height: auto;
+    min-height: 240px;
+    padding-top: 72px;
+    padding-bottom: 22px;
+  }
+  .resort-page .about-banner-title {
+    font-size: clamp(1.75rem, 6.5vw, 2.5rem);
+    line-height: 1.08;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. HERO INTERIOR SHOWCASE (EXACT REFERENCE SECTION 1)
+   Mood Interior with Floating Badges, Circular Seal & Grand Overlay Text
+   -------------------------------------------------------------------------- */
+.resort-hero-stage {
+  position: relative;
+  width: 100%;
+  min-height: clamp(520px, 75vh, 780px);
+  background-color: #0E150F;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(35px, 5vw, 65px) clamp(24px, 5vw, 70px);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.resort-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.resort-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.88) contrast(1.05);
+}
+
+.resort-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 21, 15, 0.5) 0%,
+    rgba(14, 21, 15, 0.1) 40%,
+    rgba(14, 21, 15, 0.6) 75%,
+    rgba(14, 21, 15, 0.95) 100%
+  );
+  pointer-events: none;
+}
+
+/* Top Tool Row: Left Pills + Right Circular Stamp */
+.resort-hero-top-tools {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.resort-hero-pills {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.resort-pill-tag {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #FFFFFF;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Floating White Circular Stamp (Exact Reference Component) */
+.resort-hero-circle-btn {
+  width: clamp(90px, 9vw, 115px);
+  height: clamp(90px, 9vw, 115px);
+  background: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.resort-hero-circle-btn:hover {
+  transform: scale(1.08) rotate(5deg);
+  box-shadow: 0 20px 45px rgba(151, 192, 38, 0.4);
+}
+
+.circle-btn-arrow-icon {
+  font-size: 14px;
+  color: var(--color-plum-dark);
+  margin-bottom: 4px;
+}
+
+.circle-btn-text-label {
+  font-family: var(--font-sans);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-plum-dark);
+  line-height: 1.25;
+}
+
+/* Bottom Overlay Typography (Exact Reference Heading & Subline) */
+.resort-hero-bottom-info {
+  position: relative;
+  z-index: 5;
+  max-width: 980px;
+}
+
+.resort-hero-kicker {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-logo-green);
+  margin-bottom: 12px;
+}
+
+.resort-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 5.2vw, 4.4rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: #FFFFFF;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 0 16px 0;
+  text-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+}
+
+.resort-hero-desc {
+  font-family: var(--font-sans);
+  font-size: clamp(13px, 1vw, 15px);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 620px;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. VILLA SUITES SHOWCASE SLIDER (EXACT REFERENCE SECTION 2)
+   Vertical Line Kicker, Nav Arrows, Large Sunlit Lounge, Peeking Photo & Specs
+   -------------------------------------------------------------------------- */
+.resort-showcase-section {
+  position: relative;
+  background-color: var(--color-sand-bg);
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+.resort-container {
+  width: 100%;
+  max-width: var(--container-wide, 1400px);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 70px);
+  box-sizing: border-box;
+}
+
+.resort-section-header-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: clamp(36px, 5vw, 60px);
+}
+
+.resort-vertical-line-kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 6px;
+}
+
+.resort-v-line {
+  width: 1.5px;
+  height: 48px;
+  background-color: var(--color-logo-green);
+}
+
+.resort-kicker-text {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.resort-section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.0rem, 3.8vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.18;
+  color: var(--color-plum-dark);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Showcase Stage with Slider Controls & Large Main Photo */
+.resort-slider-stage {
+  display: grid;
+  grid-template-columns: 200px 1fr 240px;
+  gap: 32px;
+  align-items: center;
+  position: relative;
+}
+
+.resort-slider-nav-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+.resort-slider-btn-row {
+  display: flex;
+  gap: 12px;
+}
+
+.resort-slider-arrow-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--color-sand-border);
+  background: var(--color-sand-light);
+  color: var(--color-plum-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.resort-slider-arrow-btn:hover {
+  background: var(--color-logo-green);
+  border-color: var(--color-logo-green);
+  color: var(--color-plum-dark);
+  transform: scale(1.06);
+}
+
+.resort-slider-spec-caption {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 24px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.resort-slider-spec-caption.is-fading {
+  opacity: 0.15;
+  transform: translateY(4px);
+}
+
+/* Central Featured Large Photo */
+.resort-slider-main-photo {
+  position: relative;
+  width: 100%;
+  height: clamp(380px, 46vw, 540px);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(18, 32, 14, 0.1);
+  border: 1px solid var(--color-sand-border);
+  background-color: #E2EBD6;
+}
+
+.resort-slider-main-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.35s ease, transform 0.6s ease;
+}
+
+.resort-slider-main-photo.is-fading img {
+  opacity: 0.2;
+  transform: scale(0.98);
+}
+
+.resort-slider-main-photo:hover img {
+  transform: scale(1.03);
+}
+
+/* Peeking Right Image */
+.resort-slider-peeking-photo {
+  position: relative;
+  height: 380px;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(18, 32, 14, 0.08);
+  border: 1px solid var(--color-sand-border);
+  transform: translateX(40px);
+  cursor: pointer;
+  background-color: #E2EBD6;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.resort-slider-peeking-photo:hover {
+  transform: translateX(35px) scale(1.02);
+  box-shadow: 0 20px 45px rgba(18, 32, 14, 0.15);
+  border-color: var(--color-logo-green);
+}
+
+.resort-slider-peeking-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.35s ease, transform 0.6s ease;
+}
+
+.resort-slider-peeking-photo.is-fading img {
+  opacity: 0.2;
+}
+
+@media (max-width: 1024px) {
+  .resort-slider-stage {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .resort-slider-peeking-photo {
+    display: none;
+  }
+  .resort-slider-nav-col {
+    order: 2;
+  }
+  .resort-slider-main-photo {
+    order: 1;
+    height: clamp(260px, 54vw, 420px);
+  }
+}
+
+@media (max-width: 600px) {
+  .resort-slider-nav-col {
+    align-items: center;
+    text-align: center;
+  }
+  .resort-slider-btn-row {
+    justify-content: center;
+  }
+  .resort-section-header-block {
+    gap: 16px;
+  }
+  .resort-v-line {
+    height: 38px;
+  }
+  .resort-hero-stage {
+    min-height: clamp(480px, 70vh, 580px);
+    padding: 28px 16px;
+  }
+  .resort-hero-top-tools {
+    gap: 12px;
+  }
+  .resort-pill-tag {
+    padding: 6px 12px;
+    font-size: 9.5px;
+  }
+  .resort-hero-circle-btn {
+    width: 78px;
+    height: 78px;
+  }
+  .circle-btn-text-label {
+    font-size: 7.5px;
+  }
+  .amenity-card-img-wrap {
+    height: 220px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. ARCHITECTURAL SPACES & AMENITIES GRID (EXACT REFERENCE SECTION 3)
+   3 Horizontal Photo Cards with Underlined Titles & Captions
+   -------------------------------------------------------------------------- */
+.resort-amenities-section {
+  position: relative;
+  background-color: var(--color-sand-muted);
+  padding: 80px 0;
+  border-top: 1px solid var(--color-sand-border);
+  border-bottom: 1px solid var(--color-sand-border);
+}
+
+.resort-amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 3vw, 36px);
+  margin-top: 40px;
+}
+
+.resort-amenity-card {
+  background: var(--color-sand-light);
+  border: 1px solid var(--color-sand-border);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(18, 32, 14, 0.05);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.resort-amenity-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(18, 32, 14, 0.12);
+  border-color: var(--color-logo-green);
+}
+
+.amenity-card-img-wrap {
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  position: relative;
+  background-color: #E2EBD6;
+}
+
+.amenity-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.resort-amenity-card:hover .amenity-card-img-wrap img {
+  transform: scale(1.06);
+}
+
+.amenity-card-body {
+  padding: 26px;
+}
+
+.resort-card-title {
+  font-family: var(--font-serif);
+  font-size: 21px;
+  font-weight: 500;
+  color: var(--color-plum-dark);
+  margin: 0 0 10px 0;
+  line-height: 1.3;
+}
+
+.amenity-card-desc {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .resort-amenities-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. PANORAMIC SUNSET HORIZON LOUNGE (EXACT REFERENCE SECTION 4)
+   Full-Width Dramatic Sunset Feature with Overlay Title & Floating Caption
+   -------------------------------------------------------------------------- */
+.resort-panorama-section {
+  position: relative;
+  width: 100%;
+  min-height: clamp(520px, 72vh, 740px);
+  background-color: #0E150F;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 80px clamp(24px, 5vw, 70px);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.resort-panorama-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.resort-panorama-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.resort-panorama-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 21, 15, 0.72) 0%,
+    rgba(14, 21, 15, 0.2) 40%,
+    rgba(14, 21, 15, 0.4) 70%,
+    rgba(14, 21, 15, 0.92) 100%
+  );
+  pointer-events: none;
+}
+
+.resort-panorama-top {
+  position: relative;
+  z-index: 5;
+  max-width: 900px;
+}
+
+.resort-panorama-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.4vw, 3.8rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #FFFFFF;
+  margin: 0;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+.resort-panorama-bottom {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.resort-panorama-floating-badge {
+  background: rgba(14, 22, 15, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 18px 24px;
+  border-radius: 2px;
+  max-width: 440px;
+}
+
+.resort-panorama-floating-badge p {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. ASYMMETRIC BEDROOM & BATH DETAIL (EXACT REFERENCE SECTION 5)
+   Master Suite + Center Narrative + Right En-Suite
+   -------------------------------------------------------------------------- */
+.resort-details-section {
+  position: relative;
+  background-color: var(--color-sand-bg);
+  padding: 80px 0;
+}
+
+.resort-details-stage {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr 0.8fr;
+  gap: clamp(24px, 3.5vw, 44px);
+  align-items: center;
+  margin-top: 40px;
+}
+
+.resort-detail-photo-left {
+  position: relative;
+  height: clamp(340px, 38vw, 460px);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(18, 32, 14, 0.1);
+  border: 1px solid var(--color-sand-border);
+}
+
+.resort-detail-photo-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.resort-detail-center-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.resort-detail-text {
+  font-family: var(--font-sans);
+  font-size: clamp(14px, 1.05vw, 15.5px);
+  line-height: 1.85;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.resort-detail-photo-right {
+  position: relative;
+  height: clamp(340px, 38vw, 460px);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(18, 32, 14, 0.1);
+  border: 1px solid var(--color-sand-border);
+}
+
+.resort-detail-photo-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .resort-details-stage {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .resort-detail-photo-left,
+  .resort-detail-photo-right {
+    height: clamp(240px, 58vw, 380px);
+  }
+}
+
+@media (max-width: 768px) {
+  .resort-panorama-stage {
+    min-height: clamp(380px, 58vh, 480px);
+    padding: 28px 16px;
+  }
+  .resort-panorama-title {
+    font-size: clamp(1.65rem, 6.5vw, 2.4rem);
+  }
+  .resort-panorama-floating-badge {
+    max-width: 100%;
+    padding: 14px 16px;
+  }
+  .resort-panorama-floating-badge p {
+    font-size: 12.5px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. EDITORIAL CURATOR INVITATION (MINIMAL LUXURY BANNER - EXACT REFERENCE DESIGN)
+   -------------------------------------------------------------------------- */
+.resort-page .editorial-invitation-section {
+  position: relative;
+  width: 100%;
+  padding: 80px 24px;
+  background-color: var(--color-sand-bg, #FAF8F5);
+  border-top: 1px solid var(--color-sand-border, #DDE7D3);
+  text-align: center;
+  overflow: hidden;
+}
+
+.resort-page .editorial-invitation-bg-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.resort-page .invitation-contour-svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+}
+
+.resort-page .editorial-invitation-inner {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.resort-page .editorial-eyebrow {
+  font-family: var(--font-sans, 'Montserrat', sans-serif);
+  font-size: clamp(0.72rem, 0.8vw, 0.82rem);
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-logo-green-dark, #7CA01D);
+  display: block;
+  margin-bottom: clamp(14px, 1.6vw, 20px);
+}
+
+.resort-page .editorial-invitation-title {
+  font-family: var(--font-serif, 'Playfair Display', serif) !important;
+  font-size: clamp(2.2rem, 4.4vw, 3.8rem);
+  font-weight: 400 !important;
+  line-height: 1.12;
+  letter-spacing: 0.035em;
+  text-transform: uppercase !important;
+  margin: 0 0 clamp(18px, 2vw, 26px) 0;
+}
+
+.resort-page .invitation-title-line {
+  display: block;
+}
+
+.resort-page .invitation-title-line.az-title-dark {
+  color: var(--color-plum-dark, #12200E);
+}
+
+.resort-page .invitation-title-line.az-title-accent {
+  color: var(--color-logo-green-dark, #7CA01D) !important;
+}
+
+.resort-page .editorial-invitation-desc {
+  font-family: var(--font-sans, 'Montserrat', sans-serif);
+  font-size: clamp(14px, 1.05vw, 15.5px);
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted, #566950);
+  max-width: 640px;
+  margin: 0 auto clamp(28px, 3.2vw, 42px) auto;
+}
+
+.resort-page .editorial-invitation-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .resort-page .editorial-invitation-section {
+    padding: clamp(55px, 8vw, 85px) 16px;
+  }
+  .resort-page .editorial-invitation-title {
+    font-size: clamp(1.8rem, 7.5vw, 2.5rem);
+    line-height: 1.15;
+  }
+  .resort-page .editorial-invitation-desc {
+    font-size: 13.5px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+  .resort-page .editorial-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+  }
+}

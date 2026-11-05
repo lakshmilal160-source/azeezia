@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ResortImage extends Model
 {
-     protected $fillable = [
+    protected $fillable = [
         'resort_id',
         'resort_room_type_id',
         'image',
@@ -20,5 +20,4 @@ class ResortImage extends Model
             'sort_order' => 'integer',
         ];
     }
-    
 }

@@ -1,0 +1,1231 @@
+/* ==========================================================================
+   AZEEZIA ORGANIC FARM & BOTANICAL ESTATE
+   Master Stylesheet - Aligned with About Us Page Design System
+   - Identical Typography: Playfair Display / Cormorant Garamond & Montserrat
+   - Identical Color Palette: #FAF8F5 (Sand BG), #12200E (Plum/Forest Night),
+     #97C026 (Azeezia Signature Green), #566950 (Muted Botanical Text),
+     #DDE7D3 (Natural Sand Border), #EBF2E3 (Muted Tint)
+   - Cinematic Top Banner matching About Us Page
+   - High-Fashion Editorial Asymmetrical Layout matching Reference Image
+   - Floating 3-Card Showcase Grid, Rotating Circular Seal & Luxury Wordmark
+   - 100% Isolated to body.farm-page (Zero side-effects on live design)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. DESIGN TOKENS & BASE TYPOGRAPHY (IDENTICAL TO ABOUT US PAGE)
+   -------------------------------------------------------------------------- */
+body.farm-page {
+  --farm-section-padding-y: var(--section-padding-y, clamp(50px, 5vw, 68px));
+
+  /* Colors identical to About Us page */
+  --color-sand-bg: #FAF8F5;
+  --color-sand-light: #FFFFFF;
+  --color-sand-border: #DDE7D3;
+  --color-sand-muted: #EBF2E3;
+  --color-logo-green: #97C026;
+  --color-logo-green-hover: #AADB34;
+  --color-logo-green-dark: #7CA01D;
+  --color-plum-dark: #12200E;
+  --color-plum-main: #1A2E16;
+  --color-text-dark: #192415;
+  --color-text-muted: #566950;
+  --color-text-champagne: #E6F3CC;
+  --color-nature-soft: #F0F7E4;
+
+  /* Fonts identical to About Us page */
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-script: 'Alex Brush', cursive;
+
+  background-color: var(--color-sand-bg);
+  color: var(--color-text-dark);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Ensure all headings on the page are uppercase matching About Us page */
+body.farm-page h1,
+body.farm-page h2,
+body.farm-page h3,
+body.farm-page h4,
+body.farm-page .farm-headline,
+body.farm-page .pillars-title,
+body.farm-page .pillar-name,
+body.farm-page .produce-title,
+body.farm-page .exp-heading,
+body.farm-page .enquiry-title,
+body.farm-page .card-title,
+body.farm-page .tri-card-overlay-title {
+  text-transform: uppercase !important;
+}
+
+/* Ensure sticky header integrates seamlessly */
+body.farm-page .site-header {
+  background-color: rgba(12, 22, 9, 0.96) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border-bottom: 1px solid rgba(151, 192, 38, 0.25) !important;
+}
+
+body.farm-page main {
+  padding-top: 0;
+}
+
+/* --------------------------------------------------------------------------
+   2. TOP CINEMATIC BANNER (IDENTICAL TO ABOUT US PAGE BANNER)
+   -------------------------------------------------------------------------- */
+.farm-page .about-banner-section {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  min-height: 300px;
+  background-color: #0E1710;
+  display: flex;
+  align-items: flex-end;
+  padding-top: 80px;
+  padding-bottom: clamp(24px, 3vw, 36px);
+  overflow: hidden;
+  border-bottom: 1px solid rgba(183, 217, 45, 0.2);
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.farm-page .about-banner-scenery {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.farm-page .about-banner-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+  filter: none;
+  transform: none;
+}
+
+/* Bottom-only luxury dark gradient overlay: upper half completely clear */
+.farm-page .about-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 42%,
+    rgba(10, 18, 9, 0.42) 64%,
+    rgba(10, 18, 9, 0.82) 86%,
+    rgba(10, 18, 9, 0.96) 100%
+  );
+  pointer-events: none;
+}
+
+.farm-page .about-banner-container {
+  width: 100%;
+  max-width: var(--container-wide, 1400px);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 70px);
+  position: relative;
+  z-index: 5;
+}
+
+.farm-page .about-banner-grid {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.farm-page .about-banner-eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 0.82vw, 0.84rem);
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-logo-green);
+  margin-bottom: clamp(8px, 1.2vw, 14px);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.farm-page .about-banner-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+}
+
+.farm-page .banner-title-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.farm-page .about-banner-desc-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: clamp(6px, 1.2vw, 16px);
+}
+
+.farm-page .about-banner-desc {
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 0.84vw, 0.84rem);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  line-height: 1.78;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.94);
+  margin: 0;
+  max-width: 440px;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.75);
+}
+
+@media (max-width: 900px) {
+  .farm-page .about-banner-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .farm-page .about-banner-desc-col {
+    padding-bottom: 0;
+  }
+  .farm-page .about-banner-desc {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .farm-page .about-banner-section {
+    height: auto;
+    min-height: 240px;
+    padding-top: 72px;
+    padding-bottom: 22px;
+  }
+  .farm-page .about-banner-title {
+    font-size: clamp(1.75rem, 6.5vw, 2.5rem);
+    line-height: 1.08;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. EDITORIAL HERO & HEADLINE (FROM DESIGN REFERENCE)
+   Exact Home Page Convention Centre Moving Color Animation (3-Line Headline)
+   -------------------------------------------------------------------------- */
+.farm-hero-section {
+  position: relative;
+  background-color: var(--color-sand-bg);
+  padding-top: 80px;
+  padding-bottom: 80px;
+  overflow: hidden;
+}
+
+.farm-hero-header {
+  max-width: 1080px;
+  margin: 0 auto clamp(45px, 6vw, 75px) auto;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.farm-kicker {
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 0.82vw, 0.84rem);
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-logo-green);
+  margin-bottom: clamp(14px, 2vw, 24px);
+  display: block;
+}
+
+/* 3-Line Grand Display Headline with Moving Logo Color Animation */
+.farm-hero-section .farm-headline.cc-grand-headline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif !important;
+  font-size: clamp(2.3rem, 4.4vw, 4.8rem);
+  font-weight: 400 !important;
+  line-height: clamp(52px, 5.8vw, 84px);
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  color: #0E1710;
+  user-select: text;
+}
+
+.farm-hero-section .cc-hl-line {
+  display: inline-block;
+  line-height: inherit;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(
+    115deg,
+    #0E1710 0%,
+    #0E1710 25%,
+    #4E7214 38%,
+    #8EC63F 46%,
+    #B7D92D 52%,
+    #97C026 58%,
+    #4E7214 66%,
+    #0E1710 78%,
+    #0E1710 100%
+  );
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #0E1710;
+  animation: ccMovingLogoColor 6.5s ease-in-out infinite;
+  transition: transform 0.3s ease;
+  white-space: nowrap;
+}
+
+.farm-hero-section .cc-hl-line-1 {
+  animation-delay: 0s;
+}
+
+.farm-hero-section .cc-hl-line-2,
+.farm-hero-section .cc-hl-line-3 {
+  animation-delay: 0.6s;
+}
+
+.farm-hero-section .cc-hl-line-4 {
+  animation-delay: 1.2s;
+}
+
+@keyframes ccMovingLogoColor {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (max-width: 900px) {
+  .farm-hero-section .cc-hl-line {
+    white-space: normal;
+  }
+  .farm-hero-section .farm-headline.cc-grand-headline {
+    font-size: clamp(1.85rem, 6.5vw, 3.2rem);
+    line-height: clamp(42px, 8vw, 60px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .farm-hero-section .cc-hl-line {
+    animation: none;
+    background-image: none;
+    -webkit-text-fill-color: #0E1710;
+    color: #0E1710;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. OVERLAPPING EDITORIAL COLLAGE HERO
+   Asymmetrical Layout matching reference:
+   [Left Peeking Photo]  [Overlapping White Card] [Center-Right Photo] [Right Peeking Photo]
+   -------------------------------------------------------------------------- */
+.farm-collage-wrapper {
+  position: relative;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.farm-collage-stage {
+  position: relative;
+  width: 100%;
+  max-width: 1220px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+}
+
+/* Left Peeking Card */
+.collage-peeking-left {
+  grid-column: 1 / 4;
+  grid-row: 1;
+  position: relative;
+  height: 380px;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(18, 32, 14, 0.08);
+  border: 1px solid var(--color-sand-border);
+  z-index: 1;
+  transform: translateX(-15px);
+}
+
+.collage-peeking-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.collage-peeking-left:hover img {
+  transform: scale(1.05);
+}
+
+/* Central Floating White Card (Exact Reference) */
+.collage-white-card {
+  grid-column: 3 / 8;
+  grid-row: 1;
+  position: relative;
+  background: var(--color-sand-light);
+  padding: clamp(38px, 4vw, 55px) clamp(32px, 3.5vw, 48px);
+  box-shadow: 0 25px 50px rgba(18, 32, 14, 0.1);
+  border: 1px solid var(--color-sand-border);
+  border-radius: 2px;
+  z-index: 10;
+}
+
+.card-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.25;
+  text-transform: uppercase;
+  color: var(--color-plum-dark);
+  margin: 0 0 20px 0;
+}
+
+.card-text {
+  font-family: var(--font-sans);
+  font-size: clamp(14px, 1.02vw, 15px);
+  line-height: 1.85;
+  color: var(--color-text-muted);
+  font-weight: 400;
+  margin: 0 0 30px 0;
+}
+
+/* Unified Master Signature Action Button (Same as Home Page) */
+.farm-page .az-editorial-btn-wrap {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.farm-page .farm-submit-wrap {
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.farm-page .farm-submit-wrap .az-signature-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+/* Azeezia Signature Green Button (Aligned with About Us Page) */
+.farm-brand-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-logo-green);
+  color: var(--color-plum-dark) !important;
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border: 1px solid var(--color-logo-green);
+  border-radius: 2px;
+  text-decoration: none;
+  transition: all 0.35s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(151, 192, 38, 0.3);
+}
+
+.farm-brand-btn:hover {
+  background-color: var(--color-logo-green-hover);
+  border-color: var(--color-logo-green-hover);
+  color: var(--color-plum-dark) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(151, 192, 38, 0.45);
+}
+
+/* Right Main Photo (Vertical botanical harvest hands) */
+.collage-center-right {
+  grid-column: 6 / 11;
+  grid-row: 1;
+  position: relative;
+  height: 530px;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(18, 32, 14, 0.12);
+  border: 1px solid var(--color-sand-border);
+  z-index: 5;
+}
+
+.collage-center-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.9s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.collage-center-right:hover img {
+  transform: scale(1.04);
+}
+
+/* Far Right Peeking Card */
+.collage-peeking-right {
+  grid-column: 10 / 13;
+  grid-row: 1;
+  position: relative;
+  height: 380px;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(18, 32, 14, 0.08);
+  border: 1px solid var(--color-sand-border);
+  transform: translateX(15px);
+  z-index: 1;
+}
+
+.collage-peeking-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.collage-peeking-right:hover img {
+  transform: scale(1.05);
+}
+
+/* Responsive Collage Breakdown */
+@media (max-width: 1024px) {
+  .farm-collage-stage {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .collage-peeking-left,
+  .collage-peeking-right {
+    display: none;
+  }
+  .collage-white-card {
+    width: 100%;
+    box-sizing: border-box;
+    order: 2;
+  }
+  .collage-center-right {
+    width: 100%;
+    height: clamp(260px, 60vw, 420px);
+    order: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .collage-white-card {
+    padding: 24px 18px;
+  }
+  .collage-white-card .card-title {
+    font-size: clamp(1.4rem, 6.5vw, 1.85rem);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .collage-white-card .card-text {
+    font-size: 13.5px;
+    line-height: 1.7;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. FLOATING THREE-CARD SHOWCASE SECTION (EXACT REFERENCE DESIGN)
+   With About Us palette: Soft Sand Muted background, White Card, Forest & Green
+   -------------------------------------------------------------------------- */
+.farm-showcase-backdrop {
+  position: relative;
+  background-color: var(--color-sand-muted);
+  background-image: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.35), transparent 70%);
+  padding: 80px 20px;
+  overflow: hidden;
+  border-top: 1px solid var(--color-sand-border);
+}
+
+/* Soft ambient background layer with gentle blur */
+.farm-ambient-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(28px) brightness(0.95);
+  opacity: 0.28;
+  transform: scale(1.08);
+  pointer-events: none;
+}
+
+/* The Floating White Container Box */
+.farm-floating-white-box {
+  position: relative;
+  max-width: 1020px;
+  margin: 0 auto;
+  background: var(--color-sand-light);
+  padding: clamp(24px, 3.5vw, 42px);
+  box-shadow: 0 30px 60px rgba(18, 32, 14, 0.08);
+  border: 1px solid var(--color-sand-border);
+  border-radius: 2px;
+  z-index: 10;
+}
+
+.farm-three-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 2vw, 24px);
+}
+
+.farm-tri-card {
+  position: relative;
+  text-decoration: none;
+  display: block;
+}
+
+.tri-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 1px;
+  background-color: #E2EBD6;
+  border: 1px solid var(--color-sand-border);
+}
+
+.tri-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.92);
+  transition: transform 0.7s cubic-bezier(0.2, 1, 0.3, 1), filter 0.5s ease;
+}
+
+.farm-tri-card:hover .tri-card-media img {
+  transform: scale(1.06);
+  filter: brightness(0.98);
+}
+
+/* Inner Text Overlay (Refined Serif Heading like "Portfolio", "Services", "The Shop") */
+.tri-card-overlay-title {
+  position: absolute;
+  top: 36%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: clamp(20px, 2.0vw, 28px);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  transition: transform 0.4s ease;
+}
+
+.farm-tri-card:hover .tri-card-overlay-title {
+  transform: translateY(-4px);
+}
+
+/* Link Below Image in Card with Green Underline */
+.tri-card-footer-link {
+  display: block;
+  text-align: center;
+  margin-top: 18px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-plum-dark);
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.tri-card-footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 2px;
+  background-color: var(--color-logo-green);
+  transition: width 0.3s ease;
+}
+
+.farm-tri-card:hover .tri-card-footer-link::after {
+  width: 65px;
+}
+
+/* Circular Seal Stamp (Centered directly below the 3-card white container) */
+.farm-seal-wrapper {
+  position: relative;
+  margin: 36px auto 0 auto;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 15;
+}
+
+.farm-seal-svg {
+  width: 100%;
+  height: 100%;
+  animation: rotateFarmSeal 28s linear infinite;
+}
+
+@keyframes rotateFarmSeal {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.farm-seal-svg text {
+  font-family: var(--font-sans);
+  font-size: 8.8px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  fill: var(--color-plum-dark);
+}
+
+.farm-seal-center-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--color-logo-green);
+  font-size: 18px;
+  pointer-events: none;
+}
+
+@media (max-width: 820px) {
+  .farm-three-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .farm-floating-white-box {
+    padding: 24px 18px;
+  }
+  .tri-card-media {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 600px) {
+  .farm-showcase-backdrop {
+    padding: 60px 16px 50px 16px;
+  }
+  .farm-floating-white-box {
+    padding: 20px 14px;
+  }
+  .tri-card-overlay-title {
+    font-size: 20px;
+  }
+  .farm-seal-wrapper {
+    width: 95px;
+    height: 95px;
+    margin-top: 24px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. SIGNATURE WORDMARK BANNER (DEEP FOREST NIGHT)
+   Exact Reference Component: Large Spaced Serif "AZEEZIA"
+   -------------------------------------------------------------------------- */
+.farm-wordmark-banner {
+  background-color: var(--color-plum-dark);
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  border-top: 1px solid rgba(151, 192, 38, 0.25);
+  border-bottom: 1px solid rgba(151, 192, 38, 0.25);
+}
+
+.farm-wordmark-title {
+  font-family: var(--font-serif);
+  font-size: clamp(34px, 5.5vw, 70px);
+  font-weight: 300;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1;
+}
+
+.farm-wordmark-sub {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-logo-green);
+  margin-top: 16px;
+}
+
+@media (max-width: 600px) {
+  .farm-wordmark-title {
+    font-size: clamp(22px, 6.5vw, 34px);
+    letter-spacing: 0.14em;
+  }
+  .farm-wordmark-sub {
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    margin-top: 10px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. THE 4 PILLARS OF AZEEZIA ORGANIC FARM
+   Using About Us typography & color palette
+   -------------------------------------------------------------------------- */
+.farm-pillars-section {
+  padding: 80px 24px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.pillars-header-block {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto clamp(40px, 5vw, 65px) auto;
+}
+
+.pillars-kicker {
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 0.82vw, 0.84rem);
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-logo-green);
+  display: block;
+  margin-bottom: 14px;
+}
+
+.pillars-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.4vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--color-plum-dark);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 0 16px 0;
+}
+
+.pillars-desc {
+  font-family: var(--font-sans);
+  font-size: clamp(14px, 1.05vw, 16px);
+  line-height: 1.85;
+  color: var(--color-text-muted);
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.pillar-item {
+  background: var(--color-sand-light);
+  padding: 38px 28px;
+  border: 1px solid var(--color-sand-border);
+  border-radius: 2px;
+  transition: all 0.35s ease;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(18, 32, 14, 0.04);
+}
+
+.pillar-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(18, 32, 14, 0.09);
+  border-color: var(--color-logo-green);
+}
+
+.pillar-number {
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-style: italic;
+  color: var(--color-logo-green);
+  margin-bottom: 18px;
+  display: block;
+}
+
+.pillar-name {
+  font-family: var(--font-serif);
+  font-size: 21px;
+  font-weight: 500;
+  color: var(--color-plum-dark);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin: 0 0 14px 0;
+  line-height: 1.35;
+}
+
+.pillar-body {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. ORGANIC FARM IMAGE GALLERY GRID (3 COLUMNS × 2 ROWS)
+   -------------------------------------------------------------------------- */
+.farm-produce-section {
+  background-color: var(--color-sand-muted);
+  padding: 80px 24px;
+  border-top: 1px solid var(--color-sand-border);
+  border-bottom: 1px solid var(--color-sand-border);
+}
+
+.produce-container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.farm-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(18px, 2.2vw, 28px);
+  margin-top: 40px;
+}
+
+.farm-gallery-item {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(18, 32, 14, 0.08);
+  background-color: #EBF2E3;
+  transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 0.4s ease;
+  border: 1px solid var(--color-sand-border);
+}
+
+.farm-gallery-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 42px rgba(18, 32, 14, 0.16);
+  border-color: var(--color-logo-green);
+}
+
+.farm-gallery-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 270px;
+  overflow: hidden;
+}
+
+.farm-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.farm-gallery-item:hover .farm-gallery-img {
+  transform: scale(1.06);
+}
+
+.farm-gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 23, 16, 0) 42%,
+    rgba(14, 23, 16, 0.5) 75%,
+    rgba(14, 23, 16, 0.85) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 20px 22px;
+  opacity: 0.94;
+  transition: opacity 0.3s ease;
+}
+
+.farm-gallery-caption {
+  font-family: var(--font-serif);
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 992px) {
+  .farm-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .farm-gallery-img-wrap {
+    height: 250px;
+  }
+}
+
+@media (max-width: 600px) {
+  .farm-gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .farm-gallery-img-wrap {
+    height: 230px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. AGRO-TOURIISM & EXPERIENCES
+   -------------------------------------------------------------------------- */
+.farm-experiences-section {
+  padding: 80px 24px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.experience-split {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+  margin-bottom: clamp(60px, 8vw, 100px);
+}
+
+.experience-split.reversed {
+  grid-template-columns: 0.9fr 1.1fr;
+}
+
+.exp-image-wrap {
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(18, 32, 14, 0.1);
+  border: 1px solid var(--color-sand-border);
+}
+
+.exp-image-wrap img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  display: block;
+}
+
+.exp-eyebrow {
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 0.82vw, 0.84rem);
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-logo-green);
+  display: block;
+  margin-bottom: 12px;
+}
+
+.exp-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.4vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-plum-dark);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+}
+
+.exp-text {
+  font-family: var(--font-sans);
+  font-size: clamp(14px, 1.05vw, 16px);
+  line-height: 1.85;
+  color: var(--color-text-muted);
+  margin: 0 0 24px 0;
+}
+
+.exp-highlights-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px 0;
+}
+
+.exp-highlights-list li {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--color-text-dark);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.exp-highlights-list li i {
+  color: var(--color-logo-green);
+  font-size: 15px;
+}
+
+@media (max-width: 900px) {
+  .experience-split,
+  .experience-split.reversed {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .experience-split.reversed .exp-image-wrap {
+    order: -1;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   10. EDITORIAL CURATOR INVITATION (MINIMAL LUXURY BANNER - EXACT REFERENCE DESIGN)
+   -------------------------------------------------------------------------- */
+.farm-page .editorial-invitation-section {
+  position: relative;
+  width: 100%;
+  padding: 80px 24px;
+  background-color: var(--color-sand-bg, #FAF8F5);
+  border-top: 1px solid var(--color-sand-border, #DDE7D3);
+  text-align: center;
+  overflow: hidden;
+}
+
+.farm-page .editorial-invitation-bg-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.farm-page .invitation-contour-svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+}
+
+.farm-page .editorial-invitation-inner {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.farm-page .editorial-eyebrow {
+  font-family: var(--font-sans, 'Montserrat', sans-serif);
+  font-size: clamp(0.72rem, 0.8vw, 0.82rem);
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-logo-green-dark, #7CA01D);
+  display: block;
+  margin-bottom: clamp(14px, 1.6vw, 20px);
+}
+
+.farm-page .editorial-invitation-title {
+  font-family: var(--font-serif, 'Playfair Display', serif) !important;
+  font-size: clamp(2.2rem, 4.4vw, 3.8rem);
+  font-weight: 400 !important;
+  line-height: 1.12;
+  letter-spacing: 0.035em;
+  text-transform: uppercase !important;
+  margin: 0 0 clamp(18px, 2vw, 26px) 0;
+}
+
+.farm-page .invitation-title-line {
+  display: block;
+}
+
+.farm-page .invitation-title-line.az-title-dark {
+  color: var(--color-plum-dark, #12200E);
+}
+
+.farm-page .invitation-title-line.az-title-accent {
+  color: var(--color-logo-green-dark, #7CA01D) !important;
+}
+
+.farm-page .editorial-invitation-desc {
+  font-family: var(--font-sans, 'Montserrat', sans-serif);
+  font-size: clamp(14px, 1.05vw, 15.5px);
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted, #566950);
+  max-width: 640px;
+  margin: 0 auto clamp(28px, 3.2vw, 42px) auto;
+}
+
+.farm-page .editorial-invitation-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .farm-page .editorial-invitation-section {
+    padding: clamp(55px, 8vw, 85px) 16px;
+  }
+  .farm-page .editorial-invitation-title {
+    font-size: clamp(1.8rem, 7.5vw, 2.5rem);
+    line-height: 1.15;
+  }
+  .farm-page .editorial-invitation-desc {
+    font-size: 13.5px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+  .farm-page .editorial-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+  }
+}

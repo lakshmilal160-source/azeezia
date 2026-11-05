@@ -1,0 +1,883 @@
+/* ==========================================================================
+   AZEEZIA CONVENTION CENTRE
+   Master Stylesheet: High-Fashion Editorial, Luxury Serif & Warm Sand
+   Inspired by Reference Image (Exact Centered Header, What We Offer Watermark,
+   Staggered Dual Photography & Refined Vertical Offerings List)
+   Header & Body Typography identical to About Us Page
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. BASE STYLES & SCOPED DESIGN TOKENS
+   -------------------------------------------------------------------------- */
+body.convention-center-page {
+  --convention-section-padding-y: var(--section-padding-y, clamp(50px, 5vw, 68px));
+  --color-sand-bg: #FAF8F5;
+  --color-sand-light: #FFFFFF;
+  --color-sand-border: #DDE7D3;
+  --color-sand-muted: #EBF2E3;
+  --color-logo-green: #97C026;
+  --color-logo-green-hover: #AADB34;
+  --color-logo-green-dark: #7CA01D;
+  --color-plum-dark: #12200E;
+  --color-text-dark: #192415;
+  --color-text-muted: #566950;
+  --color-text-champagne: #E6F3CC;
+  --color-nature-soft: #F0F7E4;
+
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-script: 'Alex Brush', cursive;
+
+  background-color: var(--color-sand-bg);
+  color: var(--color-text-dark);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Ensure sticky frosted header matches about.html */
+body.convention-center-page .site-header {
+  background-color: rgba(12, 22, 9, 0.96) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(183, 217, 45, 0.2) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3) !important;
+  padding: 10px 0 !important;
+}
+
+body.convention-center-page main {
+  padding-top: 0;
+}
+
+/* --------------------------------------------------------------------------
+   2. TOP COMPACT BANNER (300PX - IDENTICAL TO ABOUT US PAGE)
+   -------------------------------------------------------------------------- */
+.convention-banner-section {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  min-height: 300px;
+  background-color: #0E1710;
+  display: flex;
+  align-items: flex-end;
+  padding-top: 80px;
+  padding-bottom: clamp(24px, 3vw, 36px);
+  overflow: hidden;
+  border-bottom: 1px solid rgba(183, 217, 45, 0.2);
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.convention-banner-scenery {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.convention-banner-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.convention-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 44%,
+    rgba(10, 18, 9, 0.44) 66%,
+    rgba(10, 18, 9, 0.84) 86%,
+    rgba(10, 18, 9, 0.96) 100%
+  );
+  pointer-events: none;
+}
+
+.convention-banner-container {
+  width: 100%;
+  max-width: var(--container-wide, 1400px);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 70px);
+  position: relative;
+  z-index: 5;
+}
+
+.convention-banner-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+}
+
+.convention-banner-title .az-title-dark {
+  color: #FFFFFF;
+  display: block;
+}
+
+.convention-banner-title .az-title-accent {
+  color: var(--color-logo-green);
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   EDITORIAL HEADINGS — HOMEPAGE GALLERY TYPOGRAPHY & DUAL-TONE COMBINATION
+   - Font: Playfair Display / Cormorant Garamond serif
+   - Size: clamp(2.2rem, 4.2vw, 3.4rem), line-height: 1.15
+   - Letter-spacing: 1px, Text-transform: uppercase
+   - Dark tone: #0E1710 (.az-title-dark)
+   - Accent tone: #6D8B28 (.az-title-accent)
+   -------------------------------------------------------------------------- */
+body.convention-center-page .az-editorial-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 0 clamp(16px, 2vw, 24px) 0;
+  color: #0E1710;
+}
+
+body.convention-center-page .az-title-dark {
+  color: #fff !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: inherit !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  display: inline-block;
+}
+
+body.convention-center-page .az-title-accent {
+  color: #6D8B28 !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: inherit !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  display: inline-block;
+}
+
+body.convention-center-page .az-title-dark-invert {
+  color: #FFFFFF !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: inherit !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  display: inline-block;
+}
+
+/* --------------------------------------------------------------------------
+   3. INTRO SECTION (EXACT TOP HALF OF REFERENCE IMAGE)
+   - Eyebrow: SERVING THRISSUR & CENTRAL KERALA
+   - Centered luxury serif display headline
+   - Centered mission paragraph
+   -------------------------------------------------------------------------- */
+.convention-intro-section {
+  position: relative;
+  background-color: var(--color-sand-bg);
+  padding-top: clamp(60px, 6vw, 90px);
+  padding-bottom: clamp(40px, 4vw, 60px);
+  text-align: center;
+}
+
+.convention-intro-container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.convention-eyebrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 0.82vw, 0.84rem);
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #6E7E68;
+  margin-bottom: clamp(14px, 1.8vw, 20px);
+}
+
+.convention-hero-title {
+  text-align: center;
+  margin-bottom: clamp(18px, 2.2vw, 26px);
+}
+
+.convention-mission-text {
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 1.08vw, 1.1rem);
+  font-weight: 400;
+  line-height: 1.8;
+  color: #4A5844;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   4. AMENITIES / WHAT WE OFFER SECTION (EXACT BOTTOM HALF OF REFERENCE)
+   - Huge subtle watermark headline "WHAT WE OFFER"
+   - Left: Staggered double portrait photographs
+   - Right: Vertical list of amenities with serif titles and descriptions
+   -------------------------------------------------------------------------- */
+.convention-offer-section {
+  position: relative;
+  background-color: var(--color-sand-bg);
+  padding-top: clamp(10px, 2vw, 30px);
+  padding-bottom: clamp(60px, 7vw, 100px);
+  overflow: hidden;
+}
+
+.convention-offer-container {
+  width: 100%;
+  max-width: var(--container-wide, 1400px);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 70px);
+  position: relative;
+}
+
+/* Huge Watermark text matching the reference image "WHAT WE OFFER" */
+.convention-watermark-wrap {
+  position: relative;
+  width: 100%;
+  margin-bottom: clamp(-20px, -2vw, -45px);
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.convention-watermark-text {
+  font-family: var(--font-serif);
+  font-size: clamp(3.8rem, 9.5vw, 7.8rem);
+  font-weight: 300;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: rgba(18, 32, 14, 0.08);
+  white-space: nowrap;
+  user-select: none;
+  display: block;
+}
+
+/* Main Grid: Left Staggered Photos, Right Offerings List */
+.convention-offer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.08fr;
+  gap: clamp(40px, 5vw, 80px);
+  align-items: start;
+  position: relative;
+  z-index: 2;
+}
+
+/* Left Column: Staggered Dual Photography */
+.convention-staggered-col {
+  position: relative;
+}
+
+.convention-staggered-images {
+  position: relative;
+  width: 100%;
+  min-height: 580px;
+  padding-top: 10px;
+}
+
+/* Back Image (Upper Left) */
+.staggered-img-back-wrap {
+  width: 66%;
+  height: 480px;
+  position: relative;
+  z-index: 1;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(18, 32, 14, 0.09);
+}
+
+.staggered-img-back {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.staggered-img-back-wrap:hover .staggered-img-back {
+  transform: scale(1.03);
+}
+
+/* Front Image (Lower Right Overlapping) */
+.staggered-img-front-wrap {
+  position: absolute;
+  width: 60%;
+  height: 440px;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: var(--color-sand-bg);
+  padding: 8px;
+  box-shadow: 0 24px 50px rgba(18, 32, 14, 0.14);
+}
+
+.staggered-img-front {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  border-radius: 2px;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.staggered-img-front-wrap:hover .staggered-img-front {
+  transform: scale(1.03);
+}
+
+/* Section Header with Gallery Typography & Dual-Tone Combination */
+.convention-offer-header {
+  margin-bottom: clamp(24px, 3.5vw, 40px);
+  position: relative;
+  z-index: 2;
+}
+
+.convention-offer-heading {
+  margin: 0 !important;
+}
+
+/* Right Column: Amenities / Offerings Icon Box Cards */
+.convention-amenities-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 10px;
+}
+
+.amenity-icon-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.amenity-icon-box-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 18px 20px;
+  background-color: #FFFFFF;
+  border: 1px solid #E2EBDC;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(18, 32, 14, 0.04);
+  transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1), 
+              box-shadow 0.35s cubic-bezier(0.2, 0.9, 0.3, 1), 
+              border-color 0.3s ease;
+  position: relative;
+}
+
+.amenity-icon-box-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(18, 32, 14, 0.09);
+  border-color: #B7D92D;
+}
+
+/* Distinct Icon Box (Circular Badge matching Azeezia aesthetic) */
+.amenity-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1.5px solid #99AF83;
+  background-color: #F7FAF3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6D8B28;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  transition: all 0.35s ease;
+}
+
+.amenity-icon-box-card:hover .amenity-icon-box {
+  background-color: #97C026;
+  border-color: #97C026;
+  color: #0E1710;
+  transform: scale(1.08);
+  box-shadow: 0 4px 14px rgba(151, 192, 38, 0.35);
+}
+
+.amenity-box-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.amenity-item-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.12rem, 1.35vw, 1.32rem);
+  font-weight: 500;
+  line-height: 1.3;
+  color: #0E1710;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.01em;
+  transition: color 0.3s ease;
+}
+
+.amenity-icon-box-card:hover .amenity-item-title {
+  color: #12200E;
+}
+
+.amenity-item-desc {
+  font-family: var(--font-sans);
+  font-size: clamp(0.84rem, 0.9vw, 0.91rem);
+  font-weight: 400;
+  line-height: 1.62;
+  color: #566950;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   5. KEY SPECIFICATIONS & CAPACITIES COUNTER BAR
+   - Exact composition from user image:
+   - Large green serif numbers (.stat-counter-val)
+   - Dark charcoal suffixes (.spec-suffix)
+   - Uppercase tracking labels (.spec-label)
+   - Subtle vertical dividing borders
+   -------------------------------------------------------------------------- */
+.convention-specs-section {
+  position: relative;
+  background-color: #FAF8F4;
+  border-top: 1px solid rgba(151, 192, 38, 0.2);
+  border-bottom: 1px solid rgba(151, 192, 38, 0.2);
+  padding: clamp(50px, 5.5vw, 70px) 0;
+}
+
+.convention-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  text-align: center;
+}
+
+.spec-card {
+  padding: 10px clamp(15px, 2vw, 30px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.spec-card:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 10%;
+  height: 80%;
+  width: 1px;
+  background-color: #DDE7D3;
+}
+
+.spec-number {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 4.4vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1;
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.stat-counter-val {
+  color: var(--color-logo-green, #97C026);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.spec-suffix {
+  color: #192415;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  margin-left: 2px;
+}
+
+.spec-label {
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 0.8vw, 0.84rem);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #6E7E68;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   6. VENUE SPACES & FACILITIES CARDS
+   -------------------------------------------------------------------------- */
+.convention-spaces-section {
+  background-color: #FFFFFF;
+  padding: clamp(60px, 7vw, 90px) 0;
+}
+
+.spaces-header-wrap {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto clamp(40px, 5vw, 60px);
+}
+
+.spaces-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.4vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-plum-dark);
+  margin: 0 0 14px 0;
+  text-transform: uppercase;
+}
+
+.spaces-subtitle {
+  font-family: var(--font-sans);
+  font-size: clamp(0.92rem, 1vw, 1.02rem);
+  color: #566950;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.spaces-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, 3vw, 36px);
+}
+
+.space-card {
+  background-color: #FAF8F5;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #E5EFE0;
+  box-shadow: 0 10px 30px rgba(18, 32, 14, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.space-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(18, 32, 14, 0.1);
+}
+
+.space-card-img-wrap {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+.space-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.space-card:hover .space-card-img {
+  transform: scale(1.05);
+}
+
+.space-card-body {
+  padding: clamp(24px, 2.5vw, 30px);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.space-card-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #5B7221;
+  background-color: #EFF7E3;
+  padding: 4px 10px;
+  border-radius: 30px;
+  margin-bottom: 14px;
+}
+
+.space-card-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 1.6vw, 1.45rem);
+  font-weight: 500;
+  color: var(--color-plum-dark);
+  margin: 0 0 10px 0;
+}
+
+.space-card-desc {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #566950;
+  margin: 0 0 18px 0;
+  flex-grow: 1;
+}
+
+.space-card-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #E6EFE1;
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.space-card-features li {
+  font-size: 0.82rem;
+  color: #374633;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.space-card-features li i {
+  color: var(--color-logo-green-dark);
+  font-size: 0.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   7. BOOKING & INQUIRY CTA SECTION
+   -------------------------------------------------------------------------- */
+.convention-cta-section {
+  position: relative;
+  background-color: #0E1710;
+  padding: clamp(60px, 7vw, 90px) 0;
+  color: #FFFFFF;
+  overflow: hidden;
+  border-top: 1px solid rgba(151, 192, 38, 0.25);
+}
+
+.convention-cta-bg-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  background-image: url('../assets/images/azeezia_pazhuvil_11.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(80%);
+  pointer-events: none;
+}
+
+.convention-cta-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.convention-cta-eyebrow {
+  display: inline-block;
+  font-size: clamp(0.72rem, 0.8vw, 0.82rem);
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--color-logo-green);
+  margin-bottom: 16px;
+}
+
+.convention-cta-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0 0 18px 0;
+  color: #FFFFFF;
+}
+
+.convention-cta-desc {
+  font-family: var(--font-sans);
+  font-size: clamp(0.92rem, 1.05vw, 1.05rem);
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 auto clamp(28px, 3.5vw, 38px);
+  max-width: 660px;
+}
+
+.convention-cta-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-convention-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 34px;
+  background-color: var(--color-logo-green);
+  color: #0E1710;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(151, 192, 38, 0.3);
+}
+
+.btn-convention-primary:hover {
+  background-color: var(--color-logo-green-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(151, 192, 38, 0.45);
+  color: #0E1710;
+}
+
+.btn-convention-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 30px;
+  background-color: transparent;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.btn-convention-secondary:hover {
+  border-color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   8. RESPONSIVE DESIGN ADJUSTMENTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .convention-offer-grid {
+    gap: 40px;
+  }
+  
+  .convention-staggered-images {
+    min-height: 500px;
+  }
+
+  .staggered-img-back-wrap {
+    height: 400px;
+  }
+
+  .staggered-img-front-wrap {
+    height: 360px;
+  }
+
+  .spaces-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .convention-specs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .spec-card:nth-child(2)::after {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .convention-offer-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .convention-staggered-images {
+    min-height: 420px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .staggered-img-back-wrap {
+    width: 68%;
+    height: 340px;
+  }
+
+  .staggered-img-front-wrap {
+    width: 64%;
+    height: 310px;
+    padding: 6px;
+  }
+
+  .convention-watermark-text {
+    font-size: clamp(2.8rem, 11vw, 4.5rem);
+    letter-spacing: 0.08em;
+  }
+
+  .spaces-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .convention-specs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .amenity-icon-box-card {
+    padding: 14px 16px;
+    gap: 14px;
+  }
+
+  .amenity-icon-box {
+    width: 46px;
+    height: 46px;
+    font-size: 1.1rem;
+  }
+
+  .convention-specs-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .spec-card::after {
+    display: none !important;
+  }
+
+  .convention-cta-btns {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-convention-primary,
+  .btn-convention-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}

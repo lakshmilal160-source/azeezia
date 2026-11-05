@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
-     protected $fillable = [
+    protected $fillable = [
         'title',
         'slug',
         'short_description',
@@ -14,15 +14,15 @@ class Service extends Model
         'image',
         'sort_order',
         'is_active',
+        'points',
     ];
 
     protected function casts(): array
     {
         return [
+            'points' => 'array',
             'sort_order' => 'integer',
             'is_active' => 'boolean',
         ];
     }
-
-  
 }
