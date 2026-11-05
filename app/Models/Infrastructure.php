@@ -48,7 +48,19 @@ class Infrastructure extends Model
             return null;
         }
 
-        return str_starts_with($this->image, 'http') ? $this->image : asset($this->image);
+        if (str_starts_with($this->image, 'http')) {
+            return $this->image;
+        }
+
+        if (str_starts_with($this->image, 'assets/')) {
+            return asset($this->image);
+        }
+
+        if (str_starts_with($this->image, 'storage/')) {
+            return asset($this->image);
+        }
+
+        return asset('storage/'.$this->image);
     }
 
     /**

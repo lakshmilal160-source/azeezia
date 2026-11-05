@@ -52,7 +52,7 @@ class WhatWeOffer extends Model
             return $this->image;
         }
 
-        if (str_starts_with($this->image, 'assets/')) {
+        if (str_starts_with($this->image, 'assets/') || str_starts_with($this->image, 'storage/')) {
             return asset($this->image);
         }
 
@@ -72,8 +72,13 @@ class WhatWeOffer extends Model
             return $this->icon;
         }
 
-        if (str_starts_with($this->icon, 'assets/')) {
+        if (str_starts_with($this->icon, 'assets/') || str_starts_with($this->icon, 'storage/')) {
             return asset($this->icon);
+        }
+
+        // If it's a CSS class rather than an image path
+        if (! str_contains($this->icon, '/') && ! str_contains($this->icon, '.')) {
+            return null;
         }
 
         return asset('storage/'.$this->icon);

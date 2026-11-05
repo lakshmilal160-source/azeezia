@@ -62,23 +62,34 @@ class WebsiteController extends Controller
     {
         $banner = PageBanner::where('page_slug', 'gallery')->first();
 
+        return view('frontend.gallery', compact('banner'));
     }
 
     public function contact()
     {
         $banner = PageBanner::where('page_slug', 'contact')->first();
 
+        return view('frontend.contact', compact('banner'));
     }
 
     public function resort()
     {
         $banner = PageBanner::where('page_slug', 'resorts')->first();
 
+        return view('frontend.resort', compact('banner'));
     }
 
     public function organicFarm()
     {
         $banner = PageBanner::where('page_slug', 'organic-farms')->first();
 
+        return view('frontend.organic-farm', compact('banner'));
+    }
+
+    public function service()
+    {
+        $banner = PageBanner::where('page_slug', 'services')->first();
+
+        return view('frontend.services', compact('banner'));
     }
 }

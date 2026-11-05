@@ -1,16 +1,17 @@
- @extends('frontend.layout.default')
+@extends('frontend.layout.default')
 @push('style')
-     <link rel="stylesheet" href="{{ asset('assets/frontend/css/convention-center.css') }}">
- @endpush 
- <main id="mainContent">
-    @include('frontend.partials.banner',[
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/convention-center.css') }}">
+@endpush 
+@section('content')
+<main id="mainContent">
+    @include('frontend.partials.banner', [
         'image_url' => $banner['banner_image'] ?? '',
         'title' => $banner['title_part1'] ?? '',
         'subtitle' => $banner['title_part2'] ?? '',
     ])
 
     <!-- ========================================================================
-         SECTION 2: INTRO & MISSION STATEMENT (EXACT TOP HALF OF REFERENCE IMAGE)
+         SECTION 2: INTRO & MISSION STATEMENT
          - Small tracking uppercase kicker
          - Centered luxury display serif headline
          - Centered editorial mission statement paragraph
@@ -23,40 +24,43 @@
           <span class="az-title-accent">EVENT DESIGN EXPERTS</span>
         </h2>
         <p class="convention-mission-text">
-          Where architectural grandeur meets nature's timeless tranquility. Azeezia Convention Centre is crafted for Kerala's most prestigious weddings, cultural galas, and landmark celebrations — offering a 2,000-guest pillarless grand auditorium, dedicated banquet dining, world-class acoustic engineering, and legendary hospitality nestled in Thrissur.
+          {{ $centre->short_description ?? "Where architectural grandeur meets nature's timeless tranquility. Azeezia Convention Centre is crafted for Kerala's most prestigious weddings, cultural galas, and landmark celebrations — offering a 2,000-guest pillarless grand auditorium, dedicated banquet dining, world-class acoustic engineering, and legendary hospitality nestled in Thrissur." }}
         </p>
       </div>
     </section>
 
     <!-- ========================================================================
-         SECTION 3: AMENITIES & WHAT WE OFFER (EXACT BOTTOM HALF OF REFERENCE)
-         - Huge faint watermark background headline "WHAT WE OFFER"
+         SECTION 3: AMENITIES & WHAT WE OFFER (FEATURES SECTION)
+         - Faint watermark background headline "WHAT WE OFFER"
          - Left: Dual staggered portrait photographs
-         - Right: Refined icon box amenities with serif titles and dual-tone gallery headings
+         - Right: Dynamic amenities icon box cards from database ($offers)
          ======================================================================== -->
     <section class="convention-offer-section" aria-label="Amenities & Offerings">
       <div class="convention-offer-container">
 
-        <!-- Huge Subtle Watermark Text -->
+        <!-- Watermark Background Text -->
         <div class="convention-watermark-wrap" aria-hidden="true">
           <div class="convention-watermark-text">WHAT WE OFFER</div>
         </div>
-
-        
 
         <!-- Main Content Grid -->
         <div class="convention-offer-grid">
 
           <!-- Left: Dual Staggered Photographs -->
+          @php
+            $offerImages = $offers->filter(fn($o) => !empty($o->image_url))->values();
+            $backImg = $offerImages[0]->image_url ?? asset('assets/frontend/images/stage-full.webp');
+            $frontImg = $offerImages[1]->image_url ?? asset('assets/frontend/images/convention-hall-2.webp');
+          @endphp
           <div class="convention-staggered-col">
             <div class="convention-staggered-images">
               <!-- Back Image (Upper Left) -->
               <div class="staggered-img-back-wrap">
-                <img src="assets/images/wedding-couple.jpg" alt="Azeezia Wedding Couple in Luxury Scenography" class="staggered-img-back">
+                <img src="{{ $backImg }}" alt="Azeezia Convention Centre Showcase" class="staggered-img-back">
               </div>
               <!-- Front Overlapping Image (Lower Right) -->
               <div class="staggered-img-front-wrap">
-                <img src="assets/images/hero-banquet-scene.jpg" alt="Azeezia Grand Banquet Stage and Lighting" class="staggered-img-front">
+                <img src="{{ $frontImg }}" alt="Azeezia Grand Banquet Stage and Lighting" class="staggered-img-front">
               </div>
             </div>
           </div>
@@ -65,52 +69,47 @@
           <div class="convention-amenities-col">
             <div class="amenity-icon-list">
 
-
-              <!-- Amenity 3 -->
-              <div class="amenity-icon-box-card">
-                <div class="amenity-icon-box" aria-hidden="true">
-                  <i class="fas fa-concierge-bell"></i>
+              @forelse ($offers as $offer)
+                <div class="amenity-icon-box-card">
+                  <div class="amenity-icon-box" aria-hidden="true">
+                    @if ($offer->icon_url)
+                      <img src="{{ $offer->icon_url }}" alt="{{ $offer->title }}" style="width: 26px; height: 26px; object-fit: contain;">
+                    @elseif ($offer->icon && !str_contains($offer->icon, '/') && !str_contains($offer->icon, '.'))
+                      <i class="{{ $offer->icon }}"></i>
+                    @else
+                      @php
+                        $fallbackIcons = [
+                          'fas fa-concierge-bell',
+                          'fas fa-music',
+                          'fas fa-utensils',
+                          'fas fa-sliders-h',
+                          'fas fa-crown',
+                          'fas fa-heart',
+                          'fas fa-sparkles',
+                        ];
+                        $fallbackIcon = $fallbackIcons[$loop->index % count($fallbackIcons)];
+                      @endphp
+                      <i class="{{ $fallbackIcon }}"></i>
+                    @endif
+                  </div>
+                  <div class="amenity-box-content">
+                    <h3 class="amenity-item-title">{{ $offer->title }}</h3>
+                    @if ($offer->description)
+                      <p class="amenity-item-desc">{{ $offer->description }}</p>
+                    @endif
+                  </div>
                 </div>
-                <div class="amenity-box-content">
-                  <h3 class="amenity-item-title">Day-Of Coordination &amp; Banquet Care</h3>
-                  <p class="amenity-item-desc">Personal bridal escorts, dedicated stage floor managers, VIP concierges, and round-the-clock service staff ensuring your day unfolds with absolute grace.</p>
+              @empty
+                <div class="amenity-icon-box-card">
+                  <div class="amenity-icon-box" aria-hidden="true">
+                    <i class="fas fa-concierge-bell"></i>
+                  </div>
+                  <div class="amenity-box-content">
+                    <h3 class="amenity-item-title">Day-Of Coordination &amp; Banquet Care</h3>
+                    <p class="amenity-item-desc">Personal bridal escorts, dedicated stage floor managers, VIP concierges, and round-the-clock service staff ensuring your day unfolds with absolute grace.</p>
+                  </div>
                 </div>
-              </div>
-
-              <!-- Amenity 4 -->
-              <div class="amenity-icon-box-card">
-                <div class="amenity-icon-box" aria-hidden="true">
-                  <i class="fas fa-sliders-h"></i>
-                </div>
-                <div class="amenity-box-content">
-                  <h3 class="amenity-item-title">Acoustic Precision &amp; Concert Stage Lighting</h3>
-                  <p class="amenity-item-desc">World-class line-array audio systems, motorized moving-head rigs, broadcast live recording camera feeds, and programmable theatrical scene illumination.</p>
-                </div>
-              </div>
-
-              <!-- Amenity 5 -->
-              <div class="amenity-icon-box-card">
-                <div class="amenity-icon-box" aria-hidden="true">
-                  <i class="fas fa-utensils"></i>
-                </div>
-                <div class="amenity-box-content">
-                  <h3 class="amenity-item-title">Expansive Dining Hall &amp; Food Stations</h3>
-                  <p class="amenity-item-desc">Separate air-conditioned dining facility catering to 800+ guests simultaneously, featuring hygienic preparation zones, buffet islands, and traditional Sadya setups.</p>
-                </div>
-              </div>
-
-              <!-- Amenity 6 -->
-              <div class="amenity-icon-box-card">
-                <div class="amenity-icon-box" aria-hidden="true">
-                  <i class="fas fa-crown"></i>
-                </div>
-                <div class="amenity-box-content">
-                  <h3 class="amenity-item-title">VIP Bridal Suites &amp; Private Green Rooms</h3>
-                  <p class="amenity-item-desc">Lavish en-suite dressing lounges equipped with private salon vanity stations, luxury bathrooms, and discrete stage entrances for seamless bridal changes.</p>
-                </div>
-              </div>
-
-             
+              @endforelse
 
             </div>
           </div>
@@ -149,7 +148,7 @@
 
           <div class="spec-card">
             <div class="spec-number">
-              <span class="stat-counter-val" data-target="500">500</span><span class="spec-suffix">+</span>
+              <span class="stat-counter-val" data-target="{{ $centre->car_parking_capacity ?? 500 }}">{{ $centre->car_parking_capacity ?? 500 }}</span><span class="spec-suffix">+</span>
             </div>
             <div class="spec-label">Car Parking &amp; Valet</div>
           </div>
@@ -159,7 +158,8 @@
     </section>
 
     <!-- ========================================================================
-         SECTION 5: DISTINCT SPACES & VENUE FACILITIES
+         SECTION 5: DISTINCT SPACES & VENUE FACILITIES (INFRASTRUCTURE SECTION)
+         Dynamic Infrastructure Spaces from Database ($infrastructures)
          ======================================================================== -->
     <section class="convention-spaces-section" aria-label="Venue Spaces & Facilities">
       <div class="container">
@@ -175,56 +175,55 @@
         </div>
 
         <div class="spaces-grid">
-          <!-- Space 1: Pillarless Auditorium -->
-          <article class="space-card">
-            <div class="space-card-img-wrap">
-              <img src="assets/images/azeezia-auditorium.png" alt="Azeezia Pillarless Grand Auditorium" class="space-card-img" loading="lazy">
-            </div>
-            <div class="space-card-body">
-              <span class="space-card-badge">MAIN AUDITORIUM</span>
-              <h3 class="space-card-title">Pillarless Grand Hall</h3>
-              <p class="space-card-desc">An expansive high-ceiling hall offering uninterrupted visibility from all vantage points, central air-conditioning, and expansive elevated stage design.</p>
-              <ul class="space-card-features">
-                <li><i class="fas fa-check"></i> 2,000+ Guest Capacity</li>
-                <li><i class="fas fa-check"></i> Zero Pillar Obstructions</li>
-                <li><i class="fas fa-check"></i> Broadcast AV Integration</li>
-              </ul>
-            </div>
-          </article>
+          @php
+            $defaultInfraImages = [
+              asset('assets/frontend/images/stage-full.webp'),
+              asset('assets/frontend/images/convention-hall-2.webp'),
+              asset('assets/frontend/images/seating.webp'),
+              asset('assets/frontend/images/azeezia-stage.webp'),
+            ];
+          @endphp
 
-          <!-- Space 2: Dining Concourse -->
-          <article class="space-card">
-            <div class="space-card-img-wrap">
-              <img src="assets/images/azeezia-dining.png" alt="Azeezia Royal Dining Hall" class="space-card-img" loading="lazy">
-            </div>
-            <div class="space-card-body">
-              <span class="space-card-badge">BANQUET DINING</span>
-              <h3 class="space-card-title">Royal Dining Hall</h3>
-              <p class="space-card-desc">A vast, dedicated banquet dining zone equipped with modern buffet islands, hygienic staging kitchens, and traditional banquet table configurations.</p>
-              <ul class="space-card-features">
-                <li><i class="fas fa-check"></i> 800+ Simultaneous Dining</li>
-                <li><i class="fas fa-check"></i> Dedicated Catering Bays</li>
-                <li><i class="fas fa-check"></i> Traditional &amp; Buffet Setups</li>
-              </ul>
-            </div>
-          </article>
-
-          <!-- Space 3: Bridal Lounge & Grounds -->
-          <article class="space-card">
-            <div class="space-card-img-wrap">
-              <img src="assets/images/azeezia_pazhuvil_14.jpg" alt="Azeezia Luxury Bridal Lounge and Open Lawn" class="space-card-img" loading="lazy">
-            </div>
-            <div class="space-card-body">
-              <span class="space-card-badge">PRIVATE SUITES &amp; LAWNS</span>
-              <h3 class="space-card-title">VIP Suites &amp; Open Lawn</h3>
-              <p class="space-card-desc">Luxury private green rooms and air-conditioned bridal sanctuaries paired with manicured outdoor lawns for cocktail receptions and open-air photography.</p>
-              <ul class="space-card-features">
-                <li><i class="fas fa-check"></i> Private Salon Vanity Mirrors</li>
-                <li><i class="fas fa-check"></i> En-Suite Luxury Bathrooms</li>
-                <li><i class="fas fa-check"></i> Direct Stage Access Corridor</li>
-              </ul>
-            </div>
-          </article>
+          @forelse ($infrastructures as $infra)
+            @php
+              $infraImg = $infra->image_url ?: $defaultInfraImages[$loop->index % count($defaultInfraImages)];
+            @endphp
+            <article class="space-card">
+              <div class="space-card-img-wrap">
+                <img src="{{ $infraImg }}" alt="{{ $infra->title }}" class="space-card-img" loading="lazy">
+              </div>
+              <div class="space-card-body">
+                <span class="space-card-badge">SPACE {{ $infra->formatted_order }}</span>
+                <h3 class="space-card-title">{{ $infra->title }}</h3>
+                @if ($infra->description)
+                  <p class="space-card-desc">{{ $infra->description }}</p>
+                @endif
+                @if (!empty($infra->points_array))
+                  <ul class="space-card-features">
+                    @foreach ($infra->points_array as $point)
+                      <li><i class="fas fa-check"></i> {{ $point }}</li>
+                    @endforeach
+                  </ul>
+                @endif
+              </div>
+            </article>
+          @empty
+            <article class="space-card">
+              <div class="space-card-img-wrap">
+                <img src="{{ asset('assets/frontend/images/stage-full.webp') }}" alt="Azeezia Pillarless Grand Auditorium" class="space-card-img" loading="lazy">
+              </div>
+              <div class="space-card-body">
+                <span class="space-card-badge">MAIN AUDITORIUM</span>
+                <h3 class="space-card-title">Pillarless Grand Hall</h3>
+                <p class="space-card-desc">An expansive high-ceiling hall offering uninterrupted visibility from all vantage points, central air-conditioning, and expansive elevated stage design.</p>
+                <ul class="space-card-features">
+                  <li><i class="fas fa-check"></i> 2,000+ Guest Capacity</li>
+                  <li><i class="fas fa-check"></i> Zero Pillar Obstructions</li>
+                  <li><i class="fas fa-check"></i> Broadcast AV Integration</li>
+                </ul>
+              </div>
+            </article>
+          @endforelse
         </div>
       </div>
     </section>
@@ -245,17 +244,22 @@
             Connect with our event curation team to check date availability, schedule a private venue walkthrough, and begin crafting your dream celebration.
           </p>
           <div class="convention-cta-btns">
-            <a href="contact.html" class="btn-convention-primary">
+            <a href="{{ route('contact') }}" class="btn-convention-primary">
               <i class="fas fa-calendar-check"></i>
               <span>Enquire for Dates</span>
             </a>
-            <a href="tel:+918876643210" class="btn-convention-secondary">
+            @php
+              $phone = $centre->contact_phone ?? '+91 75 94 95 0777';
+              $rawPhone = preg_replace('/[^0-9+]/', '', $phone);
+            @endphp
+            <a href="tel:{{ $rawPhone }}" class="btn-convention-secondary">
               <i class="fas fa-phone-alt"></i>
-              <span>Call Concierge: +91 88 76 64 3210</span>
+              <span>Call Concierge: {{ $phone }}</span>
             </a>
           </div>
         </div>
       </div>
     </section>
 
-  </main>
+</main>
+@endsection
