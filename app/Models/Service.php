@@ -25,4 +25,40 @@ class Service extends Model
             'is_active' => 'boolean',
         ];
     }
+
+    /**
+     * Scope to active services.
+     */
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', true);
+    }
+
+    /**
+     * Scope ordered.
+     */
+    public function scopeOrdered($query)
+    {
+        return $query->orderBy('sort_order')->orderBy('id');
+    }
+
+    /**
+     * Return public image URL.
+     */
+    public function getImageUrlAttribute(): ?string
+    {
+        if (! $this->image) {
+            return null;
+        }
+
+        if (str_starts_with($this->image, 'http')) {
+            return $this->image;
+        }
+
+        if (str_starts_with($this->image, 'assets/') || str_starts_with($this->image, 'storage/')) {
+            return asset($this->image);
+        }
+
+        return asset('storage/'.$this->image);
+    }
 }

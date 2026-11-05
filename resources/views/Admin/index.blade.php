@@ -230,6 +230,9 @@
                     <a href="{{ route('admin.resorts.create') }}" class="btn btn-outline-info text-start">
                         <i class="bx bx-plus-circle me-1"></i> Add Resort / Villa
                     </a>
+                    <a href="{{ route('admin.resort-rooms.create') }}" class="btn btn-outline-info text-start">
+                        <i class="bx bx-bed me-1"></i> Add Room / Villa Configuration
+                    </a>
                     <a href="{{ route('admin.organic-farms.create') }}" class="btn btn-outline-success text-start">
                         <i class="bx bx-plus-circle me-1"></i> Add Organic Farm
                     </a>

@@ -23,7 +23,7 @@ class ResortController extends Controller
      */
     public function index(Request $request): View
     {
-        $query = Resort::withCount(['roomTypes', 'images']);
+        $query = Resort::withCount('roomTypes');
 
         if ($request->filled('search')) {
             $searchTerm = '%'.$request->search.'%';
@@ -85,15 +85,15 @@ class ResortController extends Controller
         $resort = Resort::create($validated);
 
         return redirect()->route('admin.resorts.show', $resort->id)
-            ->with('success', 'Resort created! You can now add room/villa types and gallery images.');
+            ->with('success', 'Resort created! You can now add room/villa types.');
     }
 
     /**
-     * Display the resort details, room types, and gallery photos.
+     * Display the resort details and room types.
      */
     public function show(Resort $resort): View
     {
-        $resort->load(['roomTypes', 'images']);
+        $resort->load('roomTypes');
 
         return view('Admin.resorts.show', compact('resort'));
     }
@@ -165,6 +165,8 @@ class ResortController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp', 'max:5120'],
+            'image_2' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp', 'max:5120'],
             'bedrooms' => ['required', 'integer', 'min:1'],
             'bathrooms' => ['nullable', 'integer', 'min:1'],
             'max_guests' => ['nullable', 'integer', 'min:1'],
@@ -179,6 +181,14 @@ class ResortController extends Controller
         $validated['sort_order'] = $validated['sort_order'] ?? 0;
         $validated['is_active'] = $request->boolean('is_active', true);
 
+        if ($request->hasFile('image')) {
+            $validated['image'] = $this->imageService->upload($request->file('image'), 'uploads/rooms');
+        }
+
+        if ($request->hasFile('image_2')) {
+            $validated['image_2'] = $this->imageService->upload($request->file('image_2'), 'uploads/rooms');
+        }
+
         $resort->roomTypes()->create($validated);
 
         return back()->with('success', 'Room type added successfully.');
@@ -189,6 +199,14 @@ class ResortController extends Controller
      */
     public function destroyRoomType(ResortRoomType $roomType): RedirectResponse
     {
+        if ($roomType->image) {
+            $this->imageService->delete($roomType->image);
+        }
+
+        if ($roomType->image_2) {
+            $this->imageService->delete($roomType->image_2);
+        }
+
         $roomType->delete();
 
         return back()->with('success', 'Room type deleted.');

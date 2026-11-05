@@ -6,20 +6,20 @@
         <div class="footer-col">
           <h4 class="footer-col-title">Convention Centre</h4>
           <div class="footer-location-card">
-            <span class="footer-loc-name">Azeezia Convention Centre</span>
+            <span class="footer-loc-name">{{ $conventionContact['name'] ?? 'Azeezia Convention Centre' }}</span>
             <div class="footer-loc-address">
               <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-              <span>Padukkad, Thrissur, Kerala 680005</span>
+              <span>{{ $conventionContact['address'] ?? 'Padukkad, Thrissur, Kerala 680005' }}</span>
             </div>
             <div class="footer-loc-phone">
               <i class="fas fa-phone-alt" aria-hidden="true"></i>
-              <a href="tel:+918876643210">+91 88 76 64 3210</a>
+              <a href="tel:{{ preg_replace('/[^0-9+]/', '', $conventionContact['phone'] ?? '+918876643210') }}">{{ $conventionContact['phone'] ?? '+91 88 76 64 3210' }}</a>
             </div>
             <div class="footer-loc-email">
               <i class="fas fa-envelope" aria-hidden="true"></i>
-              <a href="mailto:events@azeezia.com">events@azeezia.com</a>
+              <a href="mailto:{{ $conventionContact['email'] ?? 'events@azeezia.com' }}">{{ $conventionContact['email'] ?? 'events@azeezia.com' }}</a>
             </div>
-            <a href="https://maps.google.com/?q=Padukkad,Thrissur,Kerala" target="_blank" rel="noopener" class="footer-map-btn">
+            <a href="{{ $conventionContact['url'] ?? 'https://maps.google.com/?q=Padukkad,Thrissur,Kerala' }}" target="_blank" rel="noopener" class="footer-map-btn">
               <span>Get Directions</span> <i class="fas fa-arrow-right" aria-hidden="true"></i>
             </a>
           </div>
@@ -29,20 +29,20 @@
         <div class="footer-col">
           <h4 class="footer-col-title">Resort &amp; Organic Farm</h4>
           <div class="footer-location-card">
-            <span class="footer-loc-name">Azeezia Resort &amp; 37-Acre Farm</span>
+            <span class="footer-loc-name">{{ $resortContact['name'] ?? 'Azeezia Resort & 37-Acre Farm' }}</span>
             <div class="footer-loc-address">
               <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-              <span>Near Heritage Valley, Thrissur, Kerala 680005</span>
+              <span>{{ $resortContact['address'] ?? 'Near Heritage Valley, Thrissur, Kerala 680005' }}</span>
             </div>
             <div class="footer-loc-phone">
               <i class="fas fa-phone-alt" aria-hidden="true"></i>
-              <a href="tel:+917594950777">+91 75 94 95 0777</a>
+              <a href="tel:{{ preg_replace('/[^0-9+]/', '', $resortContact['phone'] ?? '+917594950777') }}">{{ $resortContact['phone'] ?? '+91 75 94 95 0777' }}</a>
             </div>
             <div class="footer-loc-email">
               <i class="fas fa-envelope" aria-hidden="true"></i>
-              <a href="mailto:farm@azeezia.com">farm@azeezia.com</a>
+              <a href="mailto:{{ $resortContact['email'] ?? 'farm@azeezia.com' }}">{{ $resortContact['email'] ?? 'farm@azeezia.com' }}</a>
             </div>
-            <a href="https://maps.google.com/?q=Thrissur,Kerala" target="_blank" rel="noopener" class="footer-map-btn">
+            <a href="{{ $resortContact['url'] ?? 'https://maps.google.com/?q=Thrissur,Kerala' }}" target="_blank" rel="noopener" class="footer-map-btn">
               <span>Get Directions</span> <i class="fas fa-arrow-right" aria-hidden="true"></i>
             </a>
           </div>
@@ -67,17 +67,17 @@
         <!-- Column 4: Brand & Social Connections -->
         <div class="footer-col">
           <div class="footer-brand-wrap">
-            <a href="{{route('home')}}" aria-label="Azeezia - with the nature">
-              <img src="{{asset('assets/frontend/images/logo.webp')}}" alt="Azeezia - with the nature" class="footer-logo-img">
+            <a href="{{route('home')}}" aria-label="{{ $siteSettings['site_name'] ?? 'Azeezia' }} - with the nature">
+              <img src="{{ !empty($siteSettings['logo']) ? asset('storage/' . $siteSettings['logo']) : asset('assets/frontend/images/logo.webp') }}" alt="{{ $siteSettings['site_name'] ?? 'Azeezia' }} - with the nature" class="footer-logo-img">
             </a>
             <p class="footer-about-text">
-              Where life's finest celebrations meet peaceful nature. Premier convention centre, private luxury resort pool villas, and organic farm experiences in Thrissur, Kerala.
+              {{ $siteSettings['meta_description'] ?? 'Where life\'s finest celebrations meet peaceful nature. Premier convention centre, private luxury resort pool villas, and organic farm experiences in Thrissur, Kerala.' }}
             </p>
             <div class="footer-social-row">
-              <a href="https://instagram.com" target="_blank" rel="noopener" class="social-circle-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-              <a href="https://facebook.com" target="_blank" rel="noopener" class="social-circle-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://youtube.com" target="_blank" rel="noopener" class="social-circle-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-              <a href="https://wa.me/917594950777" target="_blank" rel="noopener" class="social-circle-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+              <a href="{{ !empty($siteSettings['instagram_url']) ? $siteSettings['instagram_url'] : 'https://instagram.com' }}" target="_blank" rel="noopener" class="social-circle-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="{{ !empty($siteSettings['facebook_url']) ? $siteSettings['facebook_url'] : 'https://facebook.com' }}" target="_blank" rel="noopener" class="social-circle-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="{{ !empty($siteSettings['youtube_url']) ? $siteSettings['youtube_url'] : 'https://youtube.com' }}" target="_blank" rel="noopener" class="social-circle-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $resortContact['phone'] ?? '+917594950777') }}" target="_blank" rel="noopener" class="social-circle-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             </div>
           </div>
         </div>
@@ -88,22 +88,17 @@
     <!-- Footer Bottom Copyright Bar -->
     <div class="footer-bottom-bar">
       <div class="container footer-bottom-inner">
-        <p class="footer-copyright">&copy; 2026 Azeezia Convention Centre &amp; Organic Farm Resort. All Rights Reserved.</p>
+        <p class="footer-copyright">&copy; {{ date('Y') }} {{ $siteSettings['site_name'] ?? 'Azeezia' }} Convention Centre &amp; Organic Farm Resort. All Rights Reserved.</p>
         <p class="footer-tagline">Crafted with the Nature &bull; Thrissur, Kerala</p>
       </div>
     </div>
   </footer>
 
-  
-
-  
-
-
   <!-- ========================================================================
        FLOATING ACTIONS & MODALS
        ======================================================================== -->
   <!-- Floating WhatsApp Quick Connect -->
-  <a href="https://wa.me/917594950777?text=Hello%20Azeezia%20Team%2C%20I%20would%20like%20to%20enquire%20about%20booking%20dates%20for%20an%20event." 
+  <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $resortContact['phone'] ?? '+917594950777') }}?text=Hello%20Azeezia%20Team%2C%20I%20would%20like%20to%20enquire%20about%20booking%20dates%20for%20an%20event." 
      class="floating-whatsapp" 
      target="_blank" 
      rel="noopener" 
@@ -162,13 +157,15 @@
     </div>
   </div>
 
-  <!-- Toast Notification -->
+  <!-- Toast Notice -->
   <div class="toast-notice" id="toastNotice" role="status" aria-live="polite">
     <i class="fas fa-check-circle"></i>
     <span class="toast-text">Thank you for contacting Azeezia.</span>
   </div>
 
   <!-- Master JavaScript (Separated JS file) -->
+  <!-- Google reCAPTCHA v2 -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="{{asset('assets/frontend/js/main.js')}}"></script>
   @stack('script')
 </body>

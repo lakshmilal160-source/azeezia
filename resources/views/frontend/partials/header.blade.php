@@ -28,11 +28,9 @@
 
   <!-- Master Stylesheet (Separated CSS file) -->
   <link rel="stylesheet" href="{{asset('assets/frontend/css/style.css')}}">
-  <link rel="stylesheet" href="{{asset('assets/frontend/css/about.css')}}">
   @stack('style')
 </head>
-<body>
-
+<body class="@yield('body-class')">
   <!-- ========================================================================
        SITE HEADER & NAVIGATION
        (Azeezia Logo, Navigation, Phone Number, Enquire Now Button)

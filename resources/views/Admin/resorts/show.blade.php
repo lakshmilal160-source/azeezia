@@ -1,6 +1,6 @@
 @extends('Admin.layout')
 
-@section('title', $resort->name . ' - Rooms & Photos')
+@section('title', $resort->name . ' - Rooms & Villa Configurations')
 
 @section('content')
 <div class="mb-4 d-flex justify-content-between align-items-center">
@@ -14,12 +14,12 @@
             @if($resort->email)
                 • <i class="bx bx-envelope ms-2 me-1"></i> Email: {{ $resort->email }}
             @endif
-            {{-- Slug (commented out per request)
-            • <code>/resorts/{{ $resort->slug }}</code>
-            --}}
         </p>
     </div>
-    <div>
+    <div class="d-flex gap-2">
+        <a href="{{ route('admin.resort-rooms.create', ['resort_id' => $resort->id]) }}" class="btn btn-primary">
+            <i class="bx bx-plus-circle me-1"></i> Add Room / Villa
+        </a>
         <a href="{{ route('admin.resorts.edit', $resort->id) }}" class="btn btn-outline-primary">
             <i class="bx bx-edit me-1"></i> Edit Resort Info
         </a>
@@ -27,32 +27,54 @@
 </div>
 
 <div class="row">
-    <!-- Room Types Column -->
-    <div class="col-lg-7 mb-4">
+    <!-- Room Types Full Width Column -->
+    <div class="col-12 mb-4">
         <!-- Existing Room Types -->
         <div class="card mb-4">
-            <div class="card-header border-bottom">
+            <div class="card-header border-bottom d-flex justify-content-between align-items-center">
                 <h5 class="card-title mb-0">Room & Villa Types ({{ $resort->roomTypes->count() }})</h5>
+                <a href="{{ route('admin.resort-rooms.create', ['resort_id' => $resort->id]) }}" class="btn btn-sm btn-primary">
+                    <i class="bx bx-plus-circle me-1"></i> Add Room / Villa
+                </a>
             </div>
             <div class="table-responsive text-nowrap">
                 <table class="table table-hover mb-0">
                     <thead class="table-light">
                         <tr>
+                            <th style="width: 120px;">Photos</th>
                             <th>Type Name</th>
                             <th>Bedrooms</th>
                             <th>Max Guests</th>
                             <th>Price</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th style="width: 100px;">Action</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
                         @forelse($resort->roomTypes as $room)
                             <tr>
                                 <td>
+                                    <div class="d-flex gap-1 align-items-center">
+                                        @if($room->image)
+                                            <img src="{{ $room->image_url }}" alt="{{ $room->name }} 1" class="rounded shadow-sm" style="width: 44px; height: 34px; object-fit: cover;" title="Primary Photo">
+                                        @else
+                                            <div class="rounded bg-light text-muted d-flex align-items-center justify-content-center" style="width: 44px; height: 34px;" title="No Primary Photo">
+                                                <i class="bx bx-bed"></i>
+                                            </div>
+                                        @endif
+                                        @if($room->image_2)
+                                            <img src="{{ $room->image_2_url }}" alt="{{ $room->name }} 2" class="rounded shadow-sm" style="width: 44px; height: 34px; object-fit: cover;" title="Secondary Photo">
+                                        @else
+                                            <div class="rounded bg-light text-muted d-flex align-items-center justify-content-center" style="width: 44px; height: 34px;" title="No Secondary Photo">
+                                                <i class="bx bx-image"></i>
+                                            </div>
+                                        @endif
+                                    </div>
+                                </td>
+                                <td>
                                     <strong>{{ $room->name }}</strong>
                                     @if($room->description)
-                                        <div class="small text-muted text-truncate" style="max-width: 150px;">{{ $room->description }}</div>
+                                        <div class="small text-muted text-truncate" style="max-width: 250px;">{{ $room->description }}</div>
                                     @endif
                                 </td>
                                 <td>{{ $room->bedrooms }} BHK ({{ $room->bathrooms ?? 1 }} Bath)</td>
@@ -69,19 +91,30 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <form action="{{ route('admin.resorts.rooms.destroy', $room->id) }}" method="POST" onsubmit="return confirm('Delete this room type?');" class="d-inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-icon btn-outline-danger" title="Delete">
-                                            <i class="bx bx-trash"></i>
-                                        </button>
-                                    </form>
+                                    <div class="d-flex gap-1">
+                                        <a href="{{ route('admin.resort-rooms.edit', $room->id) }}" class="btn btn-sm btn-icon btn-outline-primary" title="Edit Room">
+                                            <i class="bx bx-edit-alt"></i>
+                                        </a>
+                                        <form action="{{ route('admin.resorts.rooms.destroy', $room->id) }}" method="POST" onsubmit="return confirm('Delete this room type?');" class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-icon btn-outline-danger" title="Delete Room">
+                                                <i class="bx bx-trash"></i>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="6" class="text-center py-4 text-muted">
-                                    No room/villa types configured yet.
+                                <td colspan="7" class="text-center py-5 text-muted">
+                                    <i class="bx bx-bed fs-1 d-block mb-2"></i>
+                                    No room/villa types configured yet for this resort.
+                                    <div class="mt-2">
+                                        <a href="{{ route('admin.resort-rooms.create', ['resort_id' => $resort->id]) }}" class="btn btn-sm btn-primary">
+                                            <i class="bx bx-plus-circle me-1"></i> Add First Room Type
+                                        </a>
+                                    </div>
                                 </td>
                             </tr>
                         @endforelse
@@ -93,10 +126,10 @@
         <!-- Add Room Type Form -->
         <div class="card">
             <div class="card-header border-bottom">
-                <h6 class="card-title mb-0"><i class="bx bx-plus-circle me-1"></i> Add Room / Villa Configuration</h6>
+                <h6 class="card-title mb-0"><i class="bx bx-plus-circle me-1"></i> Quick Add Room / Villa Configuration</h6>
             </div>
             <div class="card-body pt-3">
-                <form action="{{ route('admin.resorts.rooms.store', $resort->id) }}" method="POST">
+                <form action="{{ route('admin.resorts.rooms.store', $resort->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row g-2">
                         <div class="col-md-6 mb-2">
@@ -123,9 +156,17 @@
                             <label class="form-label">Price Unit</label>
                             <input type="text" name="price_unit" class="form-control" value="per night" placeholder="per night">
                         </div>
+                        <div class="col-md-6 mb-2">
+                            <label class="form-label">Primary Photo (Photo 1)</label>
+                            <input type="file" name="image" class="form-control" accept="image/*">
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <label class="form-label">Secondary Photo (Photo 2)</label>
+                            <input type="file" name="image_2" class="form-control" accept="image/*">
+                        </div>
                         <div class="col-12 mb-2">
                             <label class="form-label">Room Description</label>
-                            <textarea name="description" class="form-control" rows="2" placeholder="Private balcony, king size bed, bathtub, garden view..."></textarea>
+                            <textarea name="description" class="form-control" rows="2" placeholder="Private balcony, plunge pool, king size bed, luxury bathroom, garden view..."></textarea>
                         </div>
                         <div class="col-12 mb-2">
                             <div class="form-check">
@@ -134,79 +175,12 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary btn-sm">Add Room Type</button>
+                            <button type="submit" class="btn btn-primary btn-sm">Save Room Configuration</button>
                         </div>
                     </div>
                 </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Resort Photos Column -->
-    <div class="col-lg-5 mb-4">
-        <!-- Upload Photo Form -->
-        <div class="card mb-4">
-            <div class="card-header border-bottom">
-                <h6 class="card-title mb-0"><i class="bx bx-camera me-1"></i> Upload Photo (with SEO Alt Text)</h6>
-            </div>
-            <div class="card-body pt-3">
-                <form action="{{ route('admin.resorts.images.store', $resort->id) }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="mb-3">
-                        <label class="form-label">Select Photo <span class="text-danger">*</span></label>
-                        <input type="file" name="image" class="form-control" accept="image/*" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">
-                            Image Alt Text (SEO)
-                            <span class="badge bg-label-success ms-1">Google Search</span>
-                        </label>
-                        <input type="text" name="alt_text" class="form-control" value="{{ $resort->name }} bedroom interior" placeholder="e.g. Luxury villa swimming pool and garden">
-                    </div>
-                    @if($resort->roomTypes->count() > 0)
-                        <div class="mb-3">
-                            <label class="form-label">Associated Room Type (Optional)</label>
-                            <select name="resort_room_type_id" class="form-select">
-                                <option value="">General Resort Photo</option>
-                                @foreach($resort->roomTypes as $rtype)
-                                    <option value="{{ $rtype->id }}">{{ $rtype->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    @endif
-                    <button type="submit" class="btn btn-outline-primary btn-sm">Upload Photo</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Photos Grid -->
-        <div class="card">
-            <div class="card-header border-bottom">
-                <h5 class="card-title mb-0">Resort Photos ({{ $resort->images->count() }})</h5>
-            </div>
-            <div class="card-body pt-3">
-                <div class="row g-2">
-                    @forelse($resort->images as $photo)
-                        <div class="col-6 position-relative">
-                            <div class="border rounded p-1 bg-light text-center">
-                                <img src="{{ asset('storage/' . $photo->image) }}" alt="{{ $photo->alt_text }}" class="rounded w-100 mb-1" style="height: 110px; object-fit: cover;">
-                                <div class="small text-truncate text-muted" title="{{ $photo->alt_text }}">{{ $photo->alt_text ?: 'No alt text' }}</div>
-                                <form action="{{ route('admin.resorts.images.destroy', $photo->id) }}" method="POST" onsubmit="return confirm('Delete photo?');" class="mt-1">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-xs btn-outline-danger py-0 px-2">Delete</button>
-                                </form>
-                            </div>
-                        </div>
-                    @empty
-                        <div class="col-12 text-center py-4 text-muted">
-                            <i class="bx bx-image fs-2 d-block mb-1"></i> No photos uploaded for this resort yet.
-                        </div>
-                    @endforelse
-                </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
-

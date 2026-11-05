@@ -947,26 +947,106 @@ document.addEventListener('DOMContentLoaded', () => {
       const phone = document.getElementById('planEventPhone')?.value.trim();
       const email = document.getElementById('planEventEmail')?.value.trim();
       const details = document.getElementById('planEventDetails')?.value.trim();
+      const captchaError = planEventForm.querySelector('.az-captcha-error');
+      const responseBox = planEventForm.querySelector('.az-plan-response');
+
+      if (captchaError) captchaError.style.display = 'none';
+      if (responseBox) {
+        responseBox.style.display = 'none';
+        responseBox.innerHTML = '';
+      }
 
       if (!name || !phone || !email) {
         showToast('Please fill in your name, phone number and email.');
         return;
       }
 
-      const submitBtn = planEventForm.querySelector('.az-plan-submit-btn, .az-plan-circular-stamp');
-      if (submitBtn) {
-        submitBtn.style.transform = 'scale(0.96)';
-        submitBtn.style.opacity = '0.85';
+      let captchaResponse = '';
+      if (typeof grecaptcha !== 'undefined') {
+        try {
+          captchaResponse = grecaptcha.getResponse();
+        } catch (err) {}
       }
 
-      setTimeout(() => {
-        showToast(`Thank you, ${name}! Your event enquiry has been received. Our team will contact you shortly.`);
-        planEventForm.reset();
-        if (submitBtn) {
-          submitBtn.style.transform = '';
-          submitBtn.style.opacity = '';
+      if (!captchaResponse) {
+        if (captchaError) {
+          captchaError.textContent = 'Please verify that you are not a robot.';
+          captchaError.style.display = 'block';
         }
-      }, 600);
+        showToast('Please verify that you are not a robot.');
+        return;
+      }
+
+      const submitBtn = planEventForm.querySelector('.az-plan-submit-btn, .az-plan-circular-stamp');
+      const btnText = submitBtn ? submitBtn.querySelector('.az-sig-btn-text') : null;
+      const originalText = btnText ? btnText.textContent : 'SEND ENQUIRY';
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.7';
+        if (btnText) btnText.textContent = 'SENDING...';
+      }
+
+      const formData = new FormData(planEventForm);
+
+      fetch(planEventForm.action || '/contact/store', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
+          'Accept': 'application/json'
+        }
+      })
+      .then(async (res) => {
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.success) {
+          showToast(data.message || `Thank you, ${name}! Your event enquiry has been received.`);
+          if (responseBox) {
+            responseBox.innerHTML = '<div style="background:rgba(109,139,40,0.12);border:1px solid #6D8B28;color:#2D4A16;padding:12px 18px;border-radius:4px;font-size:0.95rem;font-family:var(--font-sans);">' + (data.message || 'Thank you! Your enquiry has been received.') + '</div>';
+            responseBox.style.display = 'block';
+          }
+          planEventForm.reset();
+          if (typeof grecaptcha !== 'undefined') {
+            try { grecaptcha.reset(); } catch (err) {}
+          }
+        } else {
+          let errorMsg = 'Please verify that you are not a robot.';
+          if (data.errors) {
+            const firstKey = Object.keys(data.errors)[0];
+            if (firstKey && data.errors[firstKey][0]) {
+              errorMsg = data.errors[firstKey][0];
+            }
+          } else if (data.message) {
+            errorMsg = data.message;
+          }
+          if (captchaError && errorMsg.toLowerCase().includes('robot')) {
+            captchaError.textContent = errorMsg;
+            captchaError.style.display = 'block';
+          }
+          showToast(errorMsg);
+          if (responseBox) {
+            responseBox.innerHTML = '<div style="background:rgba(220,38,38,0.1);border:1px solid #dc2626;color:#991b1b;padding:12px 18px;border-radius:4px;font-size:0.95rem;font-family:var(--font-sans);">' + errorMsg + '</div>';
+            responseBox.style.display = 'block';
+          }
+          if (typeof grecaptcha !== 'undefined') {
+            try { grecaptcha.reset(); } catch (err) {}
+          }
+        }
+      })
+      .catch((err) => {
+        showToast('Something went wrong. Please try again or reach our team directly.');
+        if (typeof grecaptcha !== 'undefined') {
+          try { grecaptcha.reset(); } catch (e) {}
+        }
+      })
+      .finally(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '';
+          submitBtn.style.transform = '';
+          if (btnText) btnText.textContent = originalText;
+        }
+      });
     });
   }
 

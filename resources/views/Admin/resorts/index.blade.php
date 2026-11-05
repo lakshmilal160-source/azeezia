@@ -50,7 +50,6 @@
                     <th>Resort Name</th>
                     <th>Contact Info</th>
                     <th>Room Types</th>
-                    <th>Photos</th>
                     <th>Amenities</th>
                     <th>Status</th>
                     <th>Actions</th>
@@ -75,9 +74,6 @@
                         </td>
                         <td>
                             <span class="badge bg-label-info">{{ $resort->room_types_count }} Room Types</span>
-                        </td>
-                        <td>
-                            <span class="badge bg-label-secondary">{{ $resort->images_count }} Photos</span>
                         </td>
                         <td>
                             @if(!empty($resort->amenities))

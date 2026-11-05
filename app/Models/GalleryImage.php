@@ -28,4 +28,31 @@ class GalleryImage extends Model
     {
         return $this->belongsTo(GalleryCategory::class, 'gallery_category_id');
     }
+
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', true);
+    }
+
+    public function scopeOrdered($query)
+    {
+        return $query->orderBy('sort_order')->latest('id');
+    }
+
+    public function getImageUrlAttribute(): string
+    {
+        if (empty($this->image)) {
+            return '';
+        }
+
+        if (str_starts_with($this->image, 'http://') || str_starts_with($this->image, 'https://')) {
+            return $this->image;
+        }
+
+        if (str_starts_with($this->image, 'assets/')) {
+            return asset($this->image);
+        }
+
+        return asset('storage/'.$this->image);
+    }
 }

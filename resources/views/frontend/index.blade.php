@@ -644,7 +644,7 @@
                             </div>
                             <div class="az-moving-gallery-card-bottom">
                                 <h3 class="az-moving-gallery-card-title">{{ $cardTitle }}</h3>
-                                <span class="az-moving-gallery-card-meta"><i class="fas fa-map-marker-alt"></i> {{ $location }}</span>
+
                             </div>
                         </div>
                     </article>
@@ -895,7 +895,7 @@
                 <!-- Right Column: Resort Pool Villa Photo -->
                 <div class="az-editorial-col-img">
                     <div class="az-editorial-photo-box">
-                        <img src="{{asset('assets/frontend/images/resort.webp')}}"
+                        <img src="{{asset('assets/frontend/images/1bhk.webp')}}"
                             alt="Azeezia Resort luxury pool villa at sunset in Thrissur" class="az-editorial-img"
                             loading="lazy">
                     </div>
@@ -1130,7 +1130,9 @@
                 </div>
 
                 <!-- Minimalist Luxury Form -->
-                <form class="az-plan-form" id="planEventForm" autocomplete="on">
+                <form class="az-plan-form" id="planEventForm" action="{{ route('contact.store') }}" method="POST" autocomplete="on">
+                    @csrf
+                    <div class="az-plan-response" id="planEventResponse" style="display:none;margin-bottom:20px;"></div>
                     <div class="az-plan-fields-grid">
                         <div class="az-plan-field-group">
                             <input type="text" id="planEventName" name="name" class="az-plan-input"
@@ -1147,6 +1149,10 @@
                         <div class="az-plan-field-group full-width">
                             <textarea id="planEventDetails" name="details" class="az-plan-textarea" placeholder="Event details"
                                 rows="2" required></textarea>
+                        </div>
+                        <div class="az-plan-field-group full-width az-plan-captcha-group">
+                            <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key') }}"></div>
+                            <div class="az-captcha-error" style="display:none;color:#b91c1c;font-size:0.85rem;margin-top:6px;"></div>
                         </div>
                     </div>
 
@@ -1216,7 +1222,7 @@
                 <!-- Post 1: Weddings -->
                 <a href="https://instagram.com" target="_blank" rel="noopener" class="az-insta-card"
                     aria-label="View Azeezia Weddings post on Instagram">
-                    <img src="assets/images/wedding-couple.jpg"
+                    <img src="{{asset('assets/frontend/images/testimonial-arch-left.webp')}}"
                         alt="Fairytale royal wedding celebration at Azeezia Thrissur" class="az-insta-img"
                         loading="lazy">
                     <div class="az-insta-overlay">
@@ -1234,7 +1240,7 @@
                 <!-- Post 2: Events & Grand Stage -->
                 <a href="https://instagram.com" target="_blank" rel="noopener" class="az-insta-card"
                     aria-label="View Azeezia Events and Auditorium post on Instagram">
-                    <img src="assets/images/stage-musical-event.jpg"
+                    <img src="{{asset('assets/frontend/images/azeezia_6.webp')}}"
                         alt="Acoustic concerts and grand stage production at Azeezia" class="az-insta-img"
                         loading="lazy">
                     <div class="az-insta-overlay">
@@ -1252,7 +1258,7 @@
                 <!-- Post 3: Birthday & Celebrations -->
                 <a href="https://instagram.com" target="_blank" rel="noopener" class="az-insta-card"
                     aria-label="View Birthday and Party Celebrations post on Instagram">
-                    <img src="assets/images/birthday-events-card.jpg"
+                    <img src="{{asset('assets/frontend/images/testimonial-arch-right.webp')}}"
                         alt="Themed birthday party celebrations and luxury banquet suite at Azeezia"
                         class="az-insta-img" loading="lazy">
                     <div class="az-insta-overlay">
@@ -1270,7 +1276,7 @@
                 <!-- Post 4: Resort Room & Pool Villa -->
                 <a href="https://instagram.com" target="_blank" rel="noopener" class="az-insta-card"
                     aria-label="View Azeezia Resort Pool Villa post on Instagram">
-                    <img src="assets/images/resort-editorial-villa.jpg"
+                    <img src="{{asset('assets/frontend/images/stage-full.webp')}}"
                         alt="Private luxury pool villa and peaceful resort living at Azeezia" class="az-insta-img"
                         loading="lazy">
                     <div class="az-insta-overlay">
@@ -1288,7 +1294,7 @@
                 <!-- Post 5: Organic Farm Sanctuary -->
                 <a href="https://instagram.com" target="_blank" rel="noopener" class="az-insta-card"
                     aria-label="View 37-Acre Organic Farm Tourism post on Instagram">
-                    <img src="assets/images/organic-farm-thrissur.jpg"
+                    <img src="{{asset('assets/frontend/images/resort.webp')}}"
                         alt="Verdant 37-acre organic farm tourism and green sanctuary in Thrissur" class="az-insta-img"
                         loading="lazy">
                     <div class="az-insta-overlay">
@@ -1306,7 +1312,7 @@
                 <!-- Post 6: Waterfront Dining & Sunset -->
                 <a href="https://instagram.com" target="_blank" rel="noopener" class="az-insta-card"
                     aria-label="View Waterfront Dining and Sunset post on Instagram">
-                    <img src="assets/images/resort-sunset-horizon.jpg"
+                    <img src="{{asset('assets/frontend/images/azeezia_6.webp')}}"
                         alt="Serene sunset waterfront dining moments at Azeezia" class="az-insta-img" loading="lazy">
                     <div class="az-insta-overlay">
                         <div class="az-insta-top-icon" aria-hidden="true"><i class="fab fa-instagram"></i></div>

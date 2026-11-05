@@ -75,4 +75,23 @@ class ConventionCentre extends Model
     {
         return $this->hasMany(Enquiry::class);
     }
+
+    public static function getContact(): array
+    {
+        $centre = self::query()->first();
+
+        $name = $centre?->name ?: 'Azeezia Convention Centre';
+        $address = $centre?->address ?: 'Padukkad, Thrissur, Kerala 680005';
+        $phone = $centre?->contact_phone ?: '+91 88 76 64 3210';
+        $email = $centre?->email ?: 'events@azeezia.com';
+        $url = $centre?->location_url ?: ('https://maps.google.com/?q='.urlencode($name.', '.$address));
+
+        return [
+            'name' => $name,
+            'address' => $address,
+            'phone' => $phone,
+            'email' => $email,
+            'url' => $url,
+        ];
+    }
 }

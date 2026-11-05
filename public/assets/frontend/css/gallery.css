@@ -414,14 +414,22 @@ body.gallery-page main {
   display: none !important;
 }
 
-/* Featured / Panoramic span cards for editorial variation */
-.gallery-card.card-wide {
-  grid-column: span 2;
+/* All cards uniform 3-column size */
+.gallery-card {
+  height: clamp(300px, 28vw, 360px);
 }
 
+.gallery-card.card-wide,
 .gallery-card.card-tall {
-  grid-row: span 2;
-  height: calc(380px * 2 + clamp(20px, 2.5vw, 30px));
+  grid-column: span 1 !important;
+  grid-row: span 1 !important;
+  height: clamp(300px, 28vw, 360px) !important;
+}
+
+.gallery-card-location,
+.gallery-card-desc,
+.lightbox-caption-location {
+  display: none !important;
 }
 
 /* Card Image */
@@ -877,7 +885,7 @@ body.gallery-page main {
   }
   
   .gallery-card.card-wide {
-    grid-column: span 2;
+    grid-column: span 1;
   }
 }
 

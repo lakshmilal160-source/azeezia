@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\InfrastructureController;
 use App\Http\Controllers\Admin\OrganicFarmController;
 use App\Http\Controllers\Admin\PageBannerController;
 use App\Http\Controllers\Admin\ResortController;
+use App\Http\Controllers\Admin\ResortRoomController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TestimonialController;
@@ -28,6 +29,7 @@ Route::controller(WebsiteController::class)->group(function () {
     Route::get('resort', 'resort')->name('resort');
     Route::get('gallery', 'gallery')->name('gallery');
     Route::get('contact', 'contact')->name('contact');
+    Route::post('/contact/store', 'storeContact')->name('contact.store');
     Route::get('organic-farm', 'organicFarm')->name('organic-farm');
 });
 
@@ -61,6 +63,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         // Resorts & Room Types
         Route::resource('resorts', ResortController::class);
+        Route::resource('resort-rooms', ResortRoomController::class);
         Route::post('resorts/{resort}/rooms', [ResortController::class, 'storeRoomType'])->name('resorts.rooms.store');
         Route::delete('resorts/rooms/{roomType}', [ResortController::class, 'destroyRoomType'])->name('resorts.rooms.destroy');
         Route::post('resorts/{resort}/images', [ResortController::class, 'storeImage'])->name('resorts.images.store');

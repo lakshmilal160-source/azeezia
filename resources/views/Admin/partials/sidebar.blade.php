@@ -54,12 +54,24 @@
             </ul>
         </li>
 
-        <!-- Resorts -->
-        <li class="menu-item {{ request()->routeIs('admin.resorts.*') ? 'active' : '' }}">
-            <a href="{{ route('admin.resorts.index') }}" class="menu-link">
+        <!-- Resorts & Stay Dropdown -->
+        <li class="menu-item {{ request()->routeIs('admin.resorts.*', 'admin.resort-rooms.*') ? 'active open' : '' }}">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-bed"></i>
                 <div>Resorts & Stay</div>
             </a>
+            <ul class="menu-sub">
+                <li class="menu-item {{ request()->routeIs('admin.resorts.*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.resorts.index') }}" class="menu-link">
+                        <div>Resort Details</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ request()->routeIs('admin.resort-rooms.*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.resort-rooms.index') }}" class="menu-link">
+                        <div>Rooms &amp; Villas</div>
+                    </a>
+                </li>
+            </ul>
         </li>
 
         <!-- Organic Farms -->

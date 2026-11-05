@@ -1,4 +1,7 @@
 @extends('frontend.layout.default')
+@push('style')
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/about.css') }}">
+@endpush
 @section('content')
 <main id="mainContent">
     @include('frontend.partials.banner', [

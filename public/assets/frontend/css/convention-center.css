@@ -151,7 +151,7 @@ body.convention-center-page .az-editorial-heading {
 }
 
 body.convention-center-page .az-title-dark {
-  color: #fff !important;
+  color: #000 ;
   font-weight: 400 !important;
   text-transform: uppercase !important;
   letter-spacing: inherit !important;
