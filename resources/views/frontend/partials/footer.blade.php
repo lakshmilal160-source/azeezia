@@ -76,8 +76,8 @@
             <div class="footer-social-row">
               <a href="{{ !empty($siteSettings['instagram_url']) ? $siteSettings['instagram_url'] : 'https://instagram.com' }}" target="_blank" rel="noopener" class="social-circle-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
               <a href="{{ !empty($siteSettings['facebook_url']) ? $siteSettings['facebook_url'] : 'https://facebook.com' }}" target="_blank" rel="noopener" class="social-circle-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-              <a href="{{ !empty($siteSettings['youtube_url']) ? $siteSettings['youtube_url'] : 'https://youtube.com' }}" target="_blank" rel="noopener" class="social-circle-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-              <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $resortContact['phone'] ?? '+917594950777') }}" target="_blank" rel="noopener" class="social-circle-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+              {{-- <a href="{{ !empty($siteSettings['youtube_url']) ? $siteSettings['youtube_url'] : 'https://youtube.com' }}" target="_blank" rel="noopener" class="social-circle-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a> --}}
+              {{-- <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $conventionContact['phone'] ?? '+917594950777') }}" target="_blank" rel="noopener" class="social-circle-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a> --}}
             </div>
           </div>
         </div>
@@ -99,7 +99,7 @@
        FLOATING ACTIONS & MODALS
        ======================================================================== -->
   <!-- Floating WhatsApp Quick Connect -->
-  <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $resortContact['phone'] ?? '+917594950777') }}?text=Hello%20Azeezia%20Team%2C%20I%20would%20like%20to%20enquire%20about%20booking%20dates%20for%20an%20event." 
+  <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $conventionContact['phone'] ?? '+917594950777') }}?text=Hello%20Azeezia%20Team%2C%20I%20would%20like%20to%20enquire%20about%20booking%20dates%20for%20an%20event." 
      class="floating-whatsapp" 
      target="_blank" 
      rel="noopener" 

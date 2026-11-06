@@ -1595,4 +1595,72 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   initFaqAccordion();
+
+  // --------------------------------------------------------------------------
+  // 13. DYNAMIC STAT NUMBER COUNTERS (About Highlights & Convention Centre Specs)
+  // --------------------------------------------------------------------------
+  const initCounters = () => {
+    const counterElements = document.querySelectorAll('.stat-counter, .stat-counter-val');
+    if (!counterElements.length) return;
+
+    const animateCounter = (el) => {
+      const rawTarget = el.getAttribute('data-target');
+      if (!rawTarget) return;
+
+      const target = parseFloat(rawTarget.replace(/[^0-9.]/g, ''));
+      if (isNaN(target)) return;
+
+      const suffix = el.getAttribute('data-suffix') || '';
+      const useComma = el.getAttribute('data-format') === 'comma' || target >= 1000;
+      const duration = 1800; // 1.8 seconds duration for smooth, elegant counting
+      const startTime = performance.now();
+
+      const formatNumber = (num) => {
+        if (useComma) {
+          return num.toLocaleString('en-US');
+        }
+        return num.toString();
+      };
+
+      const step = (currentTime) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Ease-out cubic curve: smooth graceful deceleration at end
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(ease * target);
+
+        el.textContent = formatNumber(current) + suffix;
+
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = formatNumber(target) + suffix;
+        }
+      };
+
+      requestAnimationFrame(step);
+    };
+
+    if ('IntersectionObserver' in window) {
+      const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        root: null,
+        threshold: 0.15,
+        rootMargin: '0px 0px -30px 0px'
+      });
+
+      counterElements.forEach(el => counterObserver.observe(el));
+    } else {
+      counterElements.forEach(el => animateCounter(el));
+    }
+  };
+
+  initCounters();
 });
