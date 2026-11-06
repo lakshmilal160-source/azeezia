@@ -74,7 +74,7 @@
                 <div class="amenity-icon-box-card">
                   <div class="amenity-icon-box" aria-hidden="true">
                     @if ($offer->icon_url)
-                      <img src="{{ $offer->icon_url }}" alt="{{ $offer->title }}" style="width: 26px; height: 26px; object-fit: contain;">
+                      <img src="{{ $offer->icon_url }}" alt="{{ $offer->title }}" class="img-icon">
                     @elseif ($offer->icon && !str_contains($offer->icon, '/') && !str_contains($offer->icon, '.'))
                       <i class="{{ $offer->icon }}"></i>
                     @else

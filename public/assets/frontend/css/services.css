@@ -238,10 +238,10 @@ body.services-page .site-header {
   display: block;
   font-family: var(--font-editorial-sans);
   font-size: clamp(10.5px, 0.8vw, 12px);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--color-sand-muted);
+  color: var(--color-logo-green-dark,);
   margin-bottom: clamp(20px, 2.5vw, 36px);
 }
 
@@ -561,7 +561,7 @@ body.services-page .site-header {
 .editorial-invitation-section {
   position: relative;
   width: 100%;
-  padding: clamp(64px, 8vw, 108px) 0;
+  padding: clamp(55px, 8vw, 80px) 0;
   border-top: 1px solid rgba(28, 27, 24, 0.09);
   text-align: center;
 }

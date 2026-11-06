@@ -808,35 +808,35 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       name: "Rohit & Aiswarya",
       event: "WEDDING CELEBRATION",
-      avatar: "assets/images/testimonial-avatar.jpg",
+      avatar: "assets/images/profile.webp",
       quote: "A truly memorable experience! The venue, hospitality and attention to detail made our special day absolutely perfect.",
       rating: 5
     },
     {
       name: "Karthik & Meera",
       event: "GRAND RECEPTION",
-      avatar: "assets/images/wedding-couple.jpg",
+      avatar: "assets/images/profile.webp",
       quote: "From the magnificent hall lighting to the stellar banquet service, Azeezia exceeded every expectation. Our guests are still raving about it!",
       rating: 5
     },
     {
       name: "Dr. Suresh Menon & Family",
       event: "50TH MILESTONE JUBILEE",
-      avatar: "assets/images/testimonial-avatar.jpg",
+      avatar: "assets/images/profile.webp",
       quote: "The serene natural environment, attentive staff, and peaceful resort backdrop made my milestone jubilee truly unforgettable. Pure perfection.",
       rating: 5
     },
     {
       name: "Ananya & Varun",
       event: "DESTINATION WEDDING",
-      avatar: "assets/images/couple-together.png",
+      avatar: "assets/images/profile.webp",
       quote: "The open lawn under twilight and the farm-fresh banquet was an absolute fairy tale. Azeezia is genuinely Kerala’s finest destination venue.",
       rating: 5
     },
     {
       name: "Rajesh Nair & Associates",
       event: "CORPORATE LEADERSHIP SUMMIT",
-      avatar: "assets/images/testimonial-avatar.jpg",
+      avatar: "assets/images/profile.webp",
       quote: "World-class acoustic architecture, seamless digital display integration, and immaculate dining. Perfectly executed from beginning to end.",
       rating: 5
     },
@@ -887,7 +887,7 @@ document.addEventListener('DOMContentLoaded', () => {
         testiQuoteText.textContent = `“${cleanQuote}”`;
       }
       if (testiAvatarImg) {
-        testiAvatarImg.src = data.avatar || 'assets/images/testimonial-avatar.jpg';
+        testiAvatarImg.src = data.avatar || 'assets/frontend/images/profile.webp';
         testiAvatarImg.alt = data.name || 'Testimonial Avatar';
       }
 

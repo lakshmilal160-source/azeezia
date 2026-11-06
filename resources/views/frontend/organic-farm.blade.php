@@ -43,12 +43,12 @@
 
           <!-- Center-Right Overlapping Photo (Hands Gently Holding Fresh Botanical Harvest) -->
           <div class="collage-center-right">
-            <img src="{{asset('assets/frontend/images/entry.webp')}}" alt="Hands gently holding freshly harvested organic herbs at Azeezia" loading="eager">
+            <img src="{{asset('assets/frontend/images/sir.webp')}}" alt="Hands gently holding freshly harvested organic herbs at Azeezia" loading="eager">
           </div>
 
           <!-- Far Right Peeking Image -->
           <div class="collage-peeking-right">
-            <img src="{{asset('assets/frontend/images/sir.webp')}}" alt="Verdant landscape at Azeezia Organic Estate" loading="eager">
+            <img src="{{asset('assets/frontend/images/entry.webp')}}" alt="Verdant landscape at Azeezia Organic Estate" loading="eager">
           </div>
 
         </div>
@@ -77,7 +77,7 @@
           </a>
 
           <!-- Card 2: Farm Experiences (Agro-Tourism Walk) -->
-          <a href="#farm-experiences" class="farm-tri-card">
+          <a href="#visit-enquiry" class="farm-tri-card">
             <div class="tri-card-media">
               <img src="{{asset('assets/frontend/images/farm-visit.webp')}}" alt="Guided morning agro-tourism trail along Azeezia coconut groves" loading="lazy">
               <div class="tri-card-overlay-title">Experiences</div>
@@ -86,7 +86,7 @@
           </a>
 
           <!-- Card 3: The Farm Stand (Fresh Produce Basket) -->
-          <a href="#visit-enquiry" class="farm-tri-card">
+          <a href="#produce-catalog" class="farm-tri-card">
             <div class="tri-card-media">
               <img src="{{asset('assets/frontend/images/vegetables.webp')}}" alt="Azeezia handwoven fresh organic produce basket" loading="lazy">
               <div class="tri-card-overlay-title">The Farm Stand</div>

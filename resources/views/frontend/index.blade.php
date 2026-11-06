@@ -1035,7 +1035,7 @@
                             ? (\Illuminate\Support\Str::startsWith($firstTesti->image, ['http://', 'https://', 'assets/'])
                                 ? asset($firstTesti->image)
                                 : asset('storage/' . $firstTesti->image))
-                            : asset('assets/images/testimonial-avatar.jpg');
+                            : asset('assets/frontend/images/profile.webp');
                         $initialRating = $firstTesti?->rating ?? 5;
                     @endphp
                     <div class="az-testi-card active" data-testi-index="1">
@@ -1075,10 +1075,8 @@
                             'quote' => $item->review,
                             'rating' => $item->rating ?: 5,
                             'avatar' => $item->image
-                                ? (\Illuminate\Support\Str::startsWith($item->image, ['http://', 'https://', 'assets/'])
-                                    ? asset($item->image)
-                                    : asset('storage/' . $item->image))
-                                : asset('assets/images/testimonial-avatar.jpg'),
+                                ?  asset('storage/' . $item->image)
+                                : asset('assets/frontend/images/profile.webp'),
                         ];
                     })->values();
                 @endphp
@@ -1337,3 +1335,4 @@
            FOOTER & CONTACT SECTION
            Convention Centre & Farm Contacts, Navigation Links & Copyright
            ======================================================================== -->
+@endsection

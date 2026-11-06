@@ -89,7 +89,8 @@
     <div class="footer-bottom-bar">
       <div class="container footer-bottom-inner">
         <p class="footer-copyright">&copy; {{ date('Y') }} {{ $siteSettings['site_name'] ?? 'Azeezia' }} Convention Centre &amp; Organic Farm Resort. All Rights Reserved.</p>
-        <p class="footer-tagline">Crafted with the Nature &bull; Thrissur, Kerala</p>
+        <p class="footer-tagline">Made with <i _ngcontent-ng-c2257550061=""
+                      class="fas fa-heart text-danger"></i> by Sensations Solutions.</p> 
       </div>
     </div>
   </footer>
