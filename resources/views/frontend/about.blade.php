@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/about.css') }}">
 @endpush
 @section('content')
+@section('body-class', 'about-page')
 <main id="mainContent">
     @include('frontend.partials.banner', [
         'image_url' => $banner['banner_image'] ?? '',

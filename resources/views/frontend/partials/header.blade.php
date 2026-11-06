@@ -44,14 +44,14 @@
 
       <!-- Center: Navigation Menu Links (Home, About, Convention Centre, Services, Resort, Organic Farm, Gallery, Contact) -->
       <nav class="header-center-nav" aria-label="Main Navigation">
-        <a href="{{route('home')}}" class="center-nav-item active">Home</a>
-        <a href="{{route('about')}}" class="center-nav-item">About</a>
-        <a href="{{route('convention-center')}}" class="center-nav-item">Convention Centre</a>
-        <a href="{{route('services')}}" class="center-nav-item">Services</a>
-        <a href="{{route('resort')}}" class="center-nav-item">Resort</a>
-        <a href="{{route('organic-farm')}}" class="center-nav-item">Organic Farm</a>
-        <a href="{{route('gallery')}}" class="center-nav-item">Gallery</a>
-        <a href="{{route('contact')}}" class="center-nav-item">Contact</a>
+        <a href="{{route('home')}}" class="center-nav-item {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
+        <a href="{{route('about')}}" class="center-nav-item {{ request()->routeIs('about') ? 'active' : '' }}">About</a>
+        <a href="{{route('convention-center')}}" class="center-nav-item {{ request()->routeIs('convention-center') ? 'active' : '' }}">Convention Centre</a>
+        <a href="{{route('services')}}" class="center-nav-item {{ request()->routeIs('services') ? 'active' : '' }}">Services</a>
+        <a href="{{route('resort')}}" class="center-nav-item {{ request()->routeIs('resort') ? 'active' : '' }}">Resort</a>
+        <a href="{{route('organic-farm')}}" class="center-nav-item {{ request()->routeIs('organic-farm') ? 'active' : '' }}">Organic Farm</a>
+        <a href="{{route('gallery')}}" class="center-nav-item {{ request()->routeIs('gallery') ? 'active' : '' }}">Gallery</a>
+        <a href="{{route('contact')}}" class="center-nav-item {{ request()->routeIs('contact*') ? 'active' : '' }}">Contact</a>
       </nav>
 
       <!-- Right: Enquire Pill Button + Hamburger Menu Toggle (Exact Reference) -->
@@ -80,15 +80,15 @@
       </div>
 
       <div class="nav-drawer-links">
-        <a href="{{route('home')}}" class="nav-link active">Home</a>
-        <a href="{{route('about')}}" class="nav-link">About</a>
-        <a href="{{route('convention-center')}}" class="nav-link">Convention Centre</a>
-        <a href="{{route('services')}}" class="nav-link">Services</a>
-        <a href="{{route('resort')}}" class="nav-link">Resort</a>
-        <a href="{{route('organic-farm')}}" class="nav-link">Organic Farm</a>
-        <a href="{{route('gallery')}}" class="nav-link">Gallery</a>
+        <a href="{{route('home')}}" class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
+        <a href="{{route('about')}}" class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}">About</a>
+        <a href="{{route('convention-center')}}" class="nav-link {{ request()->routeIs('convention-center') ? 'active' : '' }}">Convention Centre</a>
+        <a href="{{route('services')}}" class="nav-link {{ request()->routeIs('services') ? 'active' : '' }}">Services</a>
+        <a href="{{route('resort')}}" class="nav-link {{ request()->routeIs('resort') ? 'active' : '' }}">Resort</a>
+        <a href="{{route('organic-farm')}}" class="nav-link {{ request()->routeIs('organic-farm') ? 'active' : '' }}">Organic Farm</a>
+        <a href="{{route('gallery')}}" class="nav-link {{ request()->routeIs('gallery') ? 'active' : '' }}">Gallery</a>
         {{-- <a href="about.html#about-faq" class="nav-link">FAQ</a> --}}
-        <a href="{{route('contact')}}" class="nav-link">Contact</a>
+        <a href="{{route('contact')}}" class="nav-link {{ request()->routeIs('contact*') ? 'active' : '' }}">Contact</a>
       </div>
 
       <div class="nav-drawer-footer">

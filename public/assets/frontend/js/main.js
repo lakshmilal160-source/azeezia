@@ -30,44 +30,46 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Scroll spy: Update active class on desktop & mobile nav links
-    const sections = ['home', 'event-planning', 'special-events', 'services', 'about-moments', 'about', 'resort-nature', 'resort', 'organic-farm', 'gallery', 'contact'];
-    let currentActive = 'home';
-    sections.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) {
-        const top = el.getBoundingClientRect().top;
-        if (top <= 160) {
-          currentActive = id;
+    // Scroll spy: Update active class only on hash anchor links (if present)
+    const hashNavLinks = document.querySelectorAll('.nav-link[href^="#"], .center-nav-item[href^="#"]');
+    if (hashNavLinks.length > 0) {
+      const sections = ['home', 'event-planning', 'special-events', 'services', 'about-moments', 'about', 'resort-nature', 'resort', 'organic-farm', 'gallery', 'contact'];
+      let currentActive = 'home';
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.getBoundingClientRect().top;
+          if (top <= 160) {
+            currentActive = id;
+          }
         }
-      }
-    });
+      });
 
-    // Map sub-anchors to primary menu items
-    const anchorMap = {
-      'home': '#home',
-      'event-planning': '#about-moments',
-      'about-moments': '#about-moments',
-      'about': '#about-moments',
-      'special-events': '#special-events',
-      'services': '#special-events',
-      'resort-nature': '#resort-nature',
-      'resort': '#resort-nature',
-      'organic-farm': '#organic-farm',
-      'gallery': '#gallery',
-      'contact': '#contact'
-    };
-    const activeTarget = anchorMap[currentActive] || ('#' + currentActive);
+      // Map sub-anchors to primary menu items
+      const anchorMap = {
+        'home': '#home',
+        'event-planning': '#about-moments',
+        'about-moments': '#about-moments',
+        'about': '#about-moments',
+        'special-events': '#special-events',
+        'services': '#special-events',
+        'resort-nature': '#resort-nature',
+        'resort': '#resort-nature',
+        'organic-farm': '#organic-farm',
+        'gallery': '#gallery',
+        'contact': '#contact'
+      };
+      const activeTarget = anchorMap[currentActive] || ('#' + currentActive);
 
-    const allNavLinks = document.querySelectorAll('.nav-link, .center-nav-item');
-    allNavLinks.forEach(link => {
-      const href = link.getAttribute('href');
-      if (href === activeTarget || href === '#' + currentActive) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
+      hashNavLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === activeTarget || href === '#' + currentActive) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
   };
 
   window.addEventListener('scroll', handleScroll, { passive: true });
@@ -81,6 +83,15 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // Instant active highlight feedback when clicking any nav item
+  const allNavClickItems = document.querySelectorAll('.center-nav-item, .nav-drawer-links .nav-link');
+  allNavClickItems.forEach(item => {
+    item.addEventListener('click', function () {
+      allNavClickItems.forEach(nav => nav.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
 
   // --------------------------------------------------------------------------
   // 2. MOBILE NAVIGATION MENU
