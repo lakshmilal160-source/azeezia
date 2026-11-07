@@ -6,13 +6,13 @@
   <title>Azeezia • Luxury Convention Centre & Organic Farm Resort | Thrissur & Kochi</title>
 
   <!-- SEO & Social Meta Tags -->
-  <meta name="description" content="Azeezia Convention Centre & 37-Acre Organic Farm Resort. Premier luxury destination weddings, grand receptions, and corporate conclaves in Pazhuvil (Thrissur) and Padivattom (Kochi), Kerala.">
+  <meta name="description" content="Azeezia Convention Centre & 65+ Acre Organic Farm Resort. Premier luxury destination weddings, grand receptions, and corporate conclaves in Pazhuvil (Thrissur) and Padivattom (Kochi), Kerala.">
   <meta name="keywords" content="Azeezia Convention Centre, Thrissur wedding venue, Kochi convention centre, organic farm resort Pazhuvil, destination wedding Kerala, event planner Kerala, luxury banquet hall">
   <meta name="author" content="Azeezia">
   
   <meta property="og:type" content="website">
   <meta property="og:title" content="Azeezia • Luxury Convention Centre & Organic Farm Resort">
-  <meta property="og:description" content="Where bespoke celebrations meet pristine nature. Now welcoming Thrissur bookings at our 37-acre organic resort, alongside Kochi's flagship 2,000-capacity auditorium.">
+  <meta property="og:description" content="Where bespoke celebrations meet pristine nature. Now welcoming Thrissur bookings at our 65+ acre organic resort, alongside Kochi's flagship 2,000-capacity auditorium.">
   <meta property="og:image" content="{{asset('assets/frontend/images/logo.webp')}}">
 
   <!-- Favicon -->

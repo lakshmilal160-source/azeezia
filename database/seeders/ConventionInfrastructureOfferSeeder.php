@@ -23,7 +23,7 @@ class ConventionInfrastructureOfferSeeder extends Seeder
                 'email' => 'convention@azeezia.com',
                 'address' => 'Civil Line Road, Padivattom, Kochi, Kerala - 682024',
                 'location_url' => 'https://maps.google.com/?q=Azeezia+Convention+Centre+Kochi',
-                'short_description' => "At Azeezia, we believe life's most cherished milestones deserve an extraordinary setting. Conceived with a deep reverence for nature and grand architectural hospitality, Azeezia seamlessly unites Kerala's finest pillarless convention facilities with secluded luxury.",
+                'short_description' => "At Azeezia, we believe life's most cherished milestones deserve an extraordinary setting. Conceived with a deep reverence for nature and grand architectural hospitality, Azeezia seamlessly unites Kerala's finest  convention facilities with secluded luxury.",
                 'description' => 'Azeezia Convention Centre offers a premier venue for grand weddings, high-profile corporate galas, and vibrant stage productions. Nestled in a resort-like green ambiance with 3-road accessibility, the property features a 2,000-seat main auditorium, 5-star dining spaces, and generous car parking.',
                 'car_parking_capacity' => 500,
                 'is_active' => true,
@@ -34,8 +34,8 @@ class ConventionInfrastructureOfferSeeder extends Seeder
         $infrastructures = [
             [
                 'title' => 'Zidan Grand Auditorium',
-                'description' => "Kerala's premier pillarless auditorium with wall-to-wall carpeting and pristine acoustics.",
-                'points' => "Pillarless Architectural Design\n2,000+ Seating Guest Capacity\n25,000W Audiophile JBL Sound System\nGreen Rooms with direct stage access\nCentralized Air Conditioning",
+                'description' => "Kerala's premier  auditorium with wall-to-wall carpeting and pristine acoustics.",
+                'points' => "Architectural Design\n2,000+ Seating Guest Capacity\n25,000W Audiophile JBL Sound System\nGreen Rooms with direct stage access\nCentralized Air Conditioning",
                 'order' => 1,
                 'status' => true,
             ],

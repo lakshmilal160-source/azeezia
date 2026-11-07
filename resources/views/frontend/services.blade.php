@@ -38,7 +38,7 @@
           </h2>
           <div class="editorial-statement-body">
             <p class="editorial-statement-text">
-              Celebrations have evolved into an enduring architectural art form. Azeezia bridges natural serenity and opulent grandeur — South India's premier 2,000-guest pillarless auditorium, secluded private pool villas, and authentic farm-to-table dining nestled across a 37-acre organic sanctuary in Thrissur. We orchestrate every occasion with pristine elegance, concert acoustics, and heartfelt hospitality.
+              Celebrations have evolved into an enduring architectural art form. Azeezia bridges natural serenity and opulent grandeur — South India's premier 2,000-guest  auditorium, secluded private pool villas, and authentic farm-to-table dining nestled across a 65+ acre organic sanctuary in Thrissur. We orchestrate every occasion with pristine elegance, concert acoustics, and heartfelt hospitality.
             </p>
           </div>
         </div>

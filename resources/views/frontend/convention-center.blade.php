@@ -25,7 +25,7 @@
           <span class="az-title-accent">EVENT DESIGN EXPERTS</span>
         </h2>
         <p class="convention-mission-text">
-          {{ $centre->short_description ?? "Where architectural grandeur meets nature's timeless tranquility. Azeezia Convention Centre is crafted for Kerala's most prestigious weddings, cultural galas, and landmark celebrations — offering a 2,000-guest pillarless grand auditorium, dedicated banquet dining, world-class acoustic engineering, and legendary hospitality nestled in Thrissur." }}
+          {{ $centre->short_description ?? "Where architectural grandeur meets nature's timeless tranquility. Azeezia Convention Centre is crafted for Kerala's most prestigious weddings, cultural galas, and landmark celebrations — offering a 2,000-guest  grand auditorium, dedicated banquet dining, world-class acoustic engineering, and legendary hospitality nestled in Thrissur." }}
         </p>
       </div>
     </section>
@@ -135,21 +135,21 @@
 
           <div class="spec-card">
             <div class="spec-number">
-              <span class="stat-counter-val" data-target="800">800</span><span class="spec-suffix">+</span>
+              <span class="stat-counter-val" data-target="4000">4000</span><span class="spec-suffix">+</span>
             </div>
-            <div class="spec-label">Simultaneous Dining</div>
+            <div class="spec-label">Floating Capacity</div>
           </div>
 
-          <div class="spec-card">
+          {{-- <div class="spec-card">
             <div class="spec-number">
               <span class="stat-counter-val" data-target="100">100</span><span class="spec-suffix">%</span>
             </div>
             <div class="spec-label">Pillarless Sightlines</div>
-          </div>
+          </div> --}}
 
           <div class="spec-card">
             <div class="spec-number">
-              <span class="stat-counter-val" data-target="{{ $centre->car_parking_capacity ?? 500 }}">{{ $centre->car_parking_capacity ?? 500 }}</span><span class="spec-suffix">+</span>
+              <span class="stat-counter-val" data-target="1000"> 1000</span><span class="spec-suffix">+</span>
             </div>
             <div class="spec-label">Car Parking &amp; Valet</div>
           </div>
@@ -211,11 +211,11 @@
           @empty
             <article class="space-card">
               <div class="space-card-img-wrap">
-                <img src="{{ asset('assets/frontend/images/stage-full.webp') }}" alt="Azeezia Pillarless Grand Auditorium" class="space-card-img" loading="lazy">
+                <img src="{{ asset('assets/frontend/images/stage-full.webp') }}" alt="Azeezia  Grand Auditorium" class="space-card-img" loading="lazy">
               </div>
               <div class="space-card-body">
                 <span class="space-card-badge">MAIN AUDITORIUM</span>
-                <h3 class="space-card-title">Pillarless Grand Hall</h3>
+                <h3 class="space-card-title">Grand Hall</h3>
                 <p class="space-card-desc">An expansive high-ceiling hall offering uninterrupted visibility from all vantage points, central air-conditioning, and expansive elevated stage design.</p>
                 <ul class="space-card-features">
                   <li><i class="fas fa-check"></i> 2,000+ Guest Capacity</li>

@@ -35,7 +35,7 @@
 
           <!-- Central Floating Crisp White Card (Exact Reference Design) -->
           <div class="collage-white-card">
-            <h3 class="card-title">37-ACRE INTEGRATED<br>ORGANIC ESTATE</h3>
+            <h3 class="card-title">65+ ACRE INTEGRATED<br>ORGANIC ESTATE</h3>
             <p class="card-text">
               From zero-chemical living soils and heirloom spice gardens to restorative agro-ecology, Azeezia nurtures a thriving sanctuary where pristine Kerala nature, biodiversity, and pure wellness flourish side by side.
             </p>
@@ -48,7 +48,7 @@
 
           <!-- Far Right Peeking Image -->
           <div class="collage-peeking-right">
-            <img src="{{asset('assets/frontend/images/entry.webp')}}" alt="Verdant landscape at Azeezia Organic Estate" loading="eager">
+            <img src="{{asset('assets/frontend/images/entrance1.webp')}}" alt="Verdant landscape at Azeezia Organic Estate" loading="eager">
           </div>
 
         </div>
@@ -102,7 +102,7 @@
             <path id="sealPath" d="M 80, 80 m -62, 0 a 62,62 0 1,1 124,0 a 62,62 0 1,1 -124,0" fill="transparent"/>
             <text>
               <textPath href="#sealPath" startOffset="0%" textLength="389" lengthAdjust="spacing">
-                &bull; AZEEZIA ORGANIC FARM &bull; 37 ACRES &bull; THRISSUR &bull; PURE BOTANICAL &bull;
+                &bull; AZEEZIA ORGANIC FARM &bull; 65+  ACRES &bull; THRISSUR &bull; PURE BOTANICAL &bull;
               </textPath>
             </text>
           </svg>
@@ -147,7 +147,7 @@
         <!-- Pillar 02 -->
         <div class="pillar-item">
           <span class="pillar-number">02 /</span>
-          <h3 class="pillar-name">37-Acre Integrated Agroforestry</h3>
+          <h3 class="pillar-name">65+ Acre Integrated Agroforestry</h3>
           <p class="pillar-body">
             Multi-tiered canopy farming where towering coconut palms shelter cardamom, nutmeg, Malabar pepper vines, vanilla, and heirloom banana groves in natural synergy.
           </p>
@@ -174,19 +174,19 @@
     </section>
 
     <!-- ========================================================================
-         SECTION 4: 37-ACRE SANCTUARY GALLERY (3 COLUMNS × 2 ROWS)
+         SECTION 4: 65+ ACRE SANCTUARY GALLERY (3 COLUMNS × 2 ROWS)
          ======================================================================== -->
     <section class="farm-produce-section" id="produce-catalog" aria-label="Organic Farm Photo Gallery">
       <div class="produce-container">
         
         <div class="pillars-header-block">
-          <span class="pillars-kicker">37-ACRE SANCTUARY MOMENTS</span>
+          <span class="pillars-kicker">65+ ACRE SANCTUARY MOMENTS</span>
           <h2 class="pillars-title heading-fade-in-up">
             <span class="az-title-dark">ORGANIC FARM</span>
             <span class="az-title-accent">GALLERY</span>
           </h2>
           <p class="pillars-desc">
-            Explore the tranquil groves, living soils, heirloom spices, and authentic harvest moments captured across our 37-acre integrated farm sanctuary in Thrissur.
+            Explore the tranquil groves, living soils, heirloom spices, and authentic harvest moments captured across our 65+ acre integrated farm sanctuary in Thrissur.
           </p>
         </div>
 
@@ -205,9 +205,9 @@
             <!-- Fallback Image 1 -->
             <div class="farm-gallery-item">
               <div class="farm-gallery-img-wrap">
-                <img src="{{ asset('assets/images/organic-farm-thrissur.jpg') }}" alt="Azeezia 37-Acre Integrated Organic Farm Sanctuary" class="farm-gallery-img" loading="lazy">
+                <img src="{{ asset('assets/images/organic-farm-thrissur.jpg') }}" alt="Azeezia 65+ Acre Integrated Organic Farm Sanctuary" class="farm-gallery-img" loading="lazy">
                 <div class="farm-gallery-overlay">
-                  <span class="farm-gallery-caption">37-Acre Integrated Farm</span>
+                  <span class="farm-gallery-caption">65+ Acre Integrated Farm</span>
                 </div>
               </div>
             </div>

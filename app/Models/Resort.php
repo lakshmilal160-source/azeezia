@@ -49,7 +49,7 @@ class Resort extends Model
         $url = 'https://maps.google.com/?q='.urlencode('Azeezia Resort, '.$address);
 
         return [
-            'name' => 'Azeezia Resort & 37-Acre Farm',
+            'name' => 'Azeezia Resort & 65+ Acre Farm',
             'resort_name' => $name,
             'combined_name' => 'Azeezia Resort & Organic Farm',
             'address' => $address,

@@ -58,7 +58,7 @@
                         @php
                             $categorySlug = $item->category?->slug ?? 'other';
                             $categoryName = $item->category?->name ?? 'Gallery';
-                            $cardTitle = $item->title ?: $categoryName;
+                            $cardTitle = $item->title ?: '';
                             $imageSrc = $item->image_url;
                         @endphp
                         <article class="gallery-card" data-category="{{ $categorySlug }}"
@@ -206,13 +206,13 @@
                                 </div>
                             </article>
 
-                            <!-- Card 3: 37-Acre Organic Farm & Agro-Tour -->
+                            <!-- Card 3: 65+ Acre Organic Farm & Agro-Tour -->
                             <article class="az-story-card" data-card-index="2" data-youtube-id="L_LUpnjgPso"
                                 data-youtube-url="https://www.youtube.com/watch?v=pCAgCuQPuJQ" role="button"
-                                tabindex="0" aria-label="Card 3: 37-Acre Farm Oasis">
+                                tabindex="0" aria-label="Card 3: 65+ Acre Farm Oasis">
                                 <div class="az-story-card-inner">
                                     <img src="{{ asset('assets/frontend/images/2bhk.webp') }}"
-                                        alt="Azeezia 37-Acre Farm Oasis" class="az-deck-poster-img" loading="lazy">
+                                        alt="Azeezia 65+ Acre Farm Oasis" class="az-deck-poster-img" loading="lazy">
                                     <div class="az-deck-youtube-holder"></div>
                                     <div class="az-story-card-overlay">
                                         <div class="az-story-card-top">
@@ -230,7 +230,7 @@
                                         </div>
                                         <div class="az-story-card-bottom">
                                             <span class="az-story-cat-tag">Organic Farm</span>
-                                            <h3 class="az-story-card-title">37-Acre Farm Oasis</h3>
+                                            <h3 class="az-story-card-title">65+ Acre Farm Oasis</h3>
                                         </div>
                                         <button class="az-deck-close-video-btn" aria-label="Close YouTube player"
                                             type="button" title="Close player">

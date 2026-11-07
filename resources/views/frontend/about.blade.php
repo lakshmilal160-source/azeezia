@@ -21,8 +21,8 @@
                 <p class="about-intro-lead">
                     At Azeezia, we believe life's most cherished milestones deserve an extraordinary setting. Conceived
                     with a deep reverence for nature and grand architectural hospitality, Azeezia seamlessly unites
-                    Kerala's finest pillarless convention facilities with secluded private pool villas and a
-                    flourishing 37-acre organic sanctuary in Thrissur.
+                    Kerala's finest  convention facilities with secluded private pool villas and a
+                    flourishing 65+ acre organic sanctuary in Thrissur.
                 </p>
             </div>
         </div>
@@ -32,7 +32,7 @@
         SECTION 3: CIRCULAR BRAND HIGHLIGHTS (DYNAMIC NUMBER COUNTERS)
         Organic cluster of overlapping circles with smooth counting animation:
         - 1 Large Central Circle: 2,000+ Auditorium Guest Capacity
-        - 2 Smaller Supporting Circles: 37 Acres Nature Haven & 3 Unique Destinations
+        - 2 Smaller Supporting Circles: 65+ Acres Nature Haven & 3 Unique Destinations
         - 1 Small Circular Photo (Joyful Celebration)
         - 1 Circular Interactive Explore Button
         - 1 Small Supporting Circular Photo (Private Pool Villa)
@@ -42,9 +42,9 @@
         <div class="about-circles-container">
             <div class="circles-cluster-stage">
 
-                <!-- 1. Left Medium Circle: 37 Acres of Nature Haven -->
+                <!-- 1. Left Medium Circle: 65+ Acres of Nature Haven -->
                 <div class="brand-circle circle-stat-left">
-                    <span class="stat-number stat-counter" data-target="37" data-suffix="">37</span>
+                    <span class="stat-number stat-counter" data-target="65" data-suffix="">65+</span>
                     <span class="stat-label">ACRES NATURE<br>HAVEN</span>
                 </div>
 
@@ -104,7 +104,7 @@
                     <p class="arch-story-desc">
                         Born from a passion to celebrate life’s grandest milestones in harmony with nature, Azeezia
                         began as an aspiration by Mr. Abdul Azeez P.M. to create South India’s most inspiring
-                        destination for weddings, celebrations, and restorative retreats. Spanning 37 serene acres in
+                        destination for weddings, celebrations, and restorative retreats. Spanning 65+ serene acres in
                         Pazhuvil, Thrissur, every hall, villa, and orchard is curated for pure elegance and lasting
                         joy.
                     </p>
@@ -145,7 +145,7 @@
         3 Arched Pedestal Cards:
         - Card 1: Our Vision (Auditorium Architectural Grandeur)
         - Card 2: Our Mission (Hospitality & Private Pool Villa Serenity)
-        - Card 3: Our Values (37-Acre Nature Purity & Care)
+        - Card 3: Our Values (65+ Acre Nature Purity & Care)
         ======================================================================== -->
     <section class="arch-mvv-section" id="mission-vision-values" aria-label="Our Mission, Vision, and Values">
         <div class="arch-mvv-container">

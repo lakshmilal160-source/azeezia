@@ -268,7 +268,7 @@
                     <!-- Short Professional Description -->
                     <p class="az-about-desc">
                         Crafted to host grand weddings, corporate conclaves, and milestone celebrations with effortless
-                        elegance. Azeezia Thrissur offers expansive pillarless halls, advanced audio-visual and DJ systems,
+                        elegance. Azeezia Thrissur offers expansive halls, advanced audio-visual and DJ systems,
                         seamless high-speed Wi-Fi, magnificent lighting, spacious parking, and luxurious seating designed
                         for unforgettable gatherings.
                     </p>
@@ -626,7 +626,7 @@
                     @php
                         $categoryName = $item->category?->name ?? 'Gallery';
                         $location = $item->alt_text ?: ($item->category?->name ?? 'Azeezia Convention Centre');
-                        $cardTitle = $item->title ?: $categoryName;
+                        $cardTitle = $item->title ?: '';
                         $imageSrc = \Illuminate\Support\Str::startsWith($item->image, ['http://', 'https://', 'assets/'])
                             ? asset($item->image)
                             : asset('storage/' . $item->image);
@@ -682,7 +682,7 @@
                             </div>
                             <div class="az-moving-gallery-card-bottom">
                                 <h3 class="az-moving-gallery-card-title">Executive Conclave &amp; Summit</h3>
-                                <span class="az-moving-gallery-card-meta"><i class="fas fa-map-marker-alt"></i> Pillarless
+                                <span class="az-moving-gallery-card-meta"><i class="fas fa-map-marker-alt"></i> 
                                     Grand Hall</span>
                             </div>
                         </div>
@@ -838,7 +838,7 @@
            SECTION 1: AZEEZIA RESORT & ORGANIC FARM (EDITORIAL SHOWCASE)
            Exact Reference Design: Two-Block Editorial Split
            Block 1: Azeezia Resort (Villas & Luxury Stays)
-           Block 2: Organic Farm (37-Acre Integrated Farm & Pure Harvest)
+           Block 2: Organic Farm (65+ Acre Integrated Farm & Pure Harvest)
            ======================================================================== -->
     <section class="az-resort-farm-editorial" id="resort-nature">
         <span id="resort" class="section-anchor" aria-hidden="true"></span>
@@ -934,7 +934,7 @@
                                 <span class="az-title-accent">FARM</span>
                             </h2>
                             <p class="az-editorial-description">
-                                Discover fresh, organic produce and experience nature at its purest across our 37-acre
+                                Discover fresh, organic produce and experience nature at its purest across our 65+ acre
                                 integrated organic farm in Thrissur.
                             </p>
                             <div class="az-editorial-btn-wrap">
@@ -1291,9 +1291,9 @@
 
                 <!-- Post 5: Organic Farm Sanctuary -->
                 <a href="https://instagram.com" target="_blank" rel="noopener" class="az-insta-card"
-                    aria-label="View 37-Acre Organic Farm Tourism post on Instagram">
+                    aria-label="View 65+ Acre Organic Farm Tourism post on Instagram">
                     <img src="{{asset('assets/frontend/images/resort.webp')}}"
-                        alt="Verdant 37-acre organic farm tourism and green sanctuary in Thrissur" class="az-insta-img"
+                        alt="Verdant 65+ acre organic farm tourism and green sanctuary in Thrissur" class="az-insta-img"
                         loading="lazy">
                     <div class="az-insta-overlay">
                         <div class="az-insta-top-icon" aria-hidden="true"><i class="fab fa-instagram"></i></div>

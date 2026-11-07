@@ -8144,3 +8144,6 @@ html, body {
         white-space: normal;
     }
 }
+.text-danger{
+  color: red;
+}

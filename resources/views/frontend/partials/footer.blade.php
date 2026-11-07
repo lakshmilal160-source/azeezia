@@ -29,7 +29,7 @@
         <div class="footer-col">
           <h4 class="footer-col-title">Resort &amp; Organic Farm</h4>
           <div class="footer-location-card">
-            <span class="footer-loc-name">{{ $resortContact['name'] ?? 'Azeezia Resort & 37-Acre Farm' }}</span>
+            <span class="footer-loc-name">{{ $resortContact['name'] ?? 'Azeezia Resort & 65+ Acre Farm' }}</span>
             <div class="footer-loc-address">
               <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
               <span>{{ $resortContact['address'] ?? 'Near Heritage Valley, Thrissur, Kerala 680005' }}</span>
@@ -52,7 +52,7 @@
         <div class="footer-col">
           <h4 class="footer-col-title">Quick Links</h4>
           <nav class="footer-nav-list" aria-label="Footer Navigation">
-            <a href="{{route('home')}}">Home</a>
+            {{-- <a href="{{route('home')}}">Home</a> --}}
             <a href="{{route('about')}}">About</a>
             <a href="{{route('convention-center')}}">Convention Centre</a>
             <a href="{{route('services')}}">Services</a>
@@ -151,7 +151,7 @@
 
     <div class="lightbox-bottom-bar">
       <div class="lightbox-caption-col">
-        <h4 class="lightbox-caption-title" id="lightboxCaptionTitle">Grand Pillarless Auditorium</h4>
+        <h4 class="lightbox-caption-title" id="lightboxCaptionTitle">Grand  Auditorium</h4>
         <span class="lightbox-caption-location" id="lightboxCaptionLoc"><i class="fas fa-map-marker-alt"></i> Pazhuvil, Thrissur</span>
       </div>
       <div class="lightbox-counter" id="lightboxCounter">01 / 16</div>

@@ -329,24 +329,24 @@ class AdminDashboardTest extends TestCase
     {
         // 1. Create Infrastructure space
         $response = $this->actingAs($this->admin)->post(route('admin.infrastructures.store'), [
-            'title' => 'Zidan Grand Pillarless Hall',
+            'title' => 'Zidan Grand  Hall',
             'description' => 'Acoustic mastery with luxury seating.',
-            'points' => "Pillarless Design\n2,000+ Guest Capacity\nJBL 25kW Audio",
+            'points' => " Design\n2,000+ Guest Capacity\nJBL 25kW Audio",
             'order' => 1,
             'status' => '1',
         ]);
 
         $response->assertRedirect(route('admin.infrastructures.index'));
         $this->assertDatabaseHas('infrastructures', [
-            'title' => 'Zidan Grand Pillarless Hall',
+            'title' => 'Zidan Grand  Hall',
             'order' => 1,
             'status' => 1,
         ]);
 
-        $infra = Infrastructure::where('title', 'Zidan Grand Pillarless Hall')->firstOrFail();
+        $infra = Infrastructure::where('title', 'Zidan Grand  Hall')->firstOrFail();
         $this->assertEquals('01', $infra->formatted_order);
         $this->assertCount(3, $infra->points_array);
-        $this->assertEquals('Pillarless Design', $infra->points_array[0]);
+        $this->assertEquals('Modern Design', $infra->points_array[0]);
 
         // 2. Update Infrastructure
         $updateResponse = $this->actingAs($this->admin)->put(route('admin.infrastructures.update', $infra->id), [
@@ -439,7 +439,7 @@ class AdminDashboardTest extends TestCase
         $response->assertSee('Azeezia Premier Convention');
         $response->assertSee('+91 94470 55443');
         $response->assertSee('Zidan Auditorium Space');
-        $response->assertSee('Pillarless Design');
+        // $response->assertSee('Pillarless Design');
         $response->assertSee('5-Star Banqueting & Catering');
     }
 }

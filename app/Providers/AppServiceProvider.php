@@ -51,7 +51,7 @@ class AppServiceProvider extends ServiceProvider
                 $resortContact = Resort::getContact();
             } catch (\Throwable) {
                 $resortContact = [
-                    'name' => 'Azeezia Resort & 37-Acre Farm',
+                    'name' => 'Azeezia Resort & 65+ Acre Farm',
                     'resort_name' => 'Azeezia Resort',
                     'combined_name' => 'Azeezia Resort & Organic Farm',
                     'address' => 'Near Heritage Valley, Thrissur, Kerala 680005',
