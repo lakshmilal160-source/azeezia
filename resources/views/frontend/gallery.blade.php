@@ -18,7 +18,7 @@
       </style>
 @endpush
 @section('content')
-@section('body-class', 'resort-page')
+@section('body-class', 'gallery-page')
 <main>
     @include('frontend.partials.banner', [
         'image_url' => $banner['banner_image'] ?? '',

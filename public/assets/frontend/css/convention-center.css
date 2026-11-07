@@ -53,7 +53,8 @@ body.convention-center-page main {
 /* --------------------------------------------------------------------------
    2. TOP COMPACT BANNER (300PX - IDENTICAL TO ABOUT US PAGE)
    -------------------------------------------------------------------------- */
-.convention-banner-section {
+.convention-banner-section,
+.about-banner-section {
   position: relative;
   width: 100%;
   height: 300px;
@@ -69,7 +70,8 @@ body.convention-center-page main {
   box-sizing: border-box;
 }
 
-.convention-banner-scenery {
+.convention-banner-scenery,
+.about-banner-scenery {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -79,14 +81,16 @@ body.convention-center-page main {
   overflow: hidden;
 }
 
-.convention-banner-bg-img {
+.convention-banner-bg-img,
+.about-banner-bg-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center 40%;
 }
 
-.convention-banner-overlay {
+.convention-banner-overlay,
+.about-banner-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg,
@@ -98,7 +102,8 @@ body.convention-center-page main {
   pointer-events: none;
 }
 
-.convention-banner-container {
+.convention-banner-container,
+.about-banner-container {
   width: 100%;
   max-width: var(--container-wide, 1400px);
   margin: 0 auto;
@@ -107,26 +112,75 @@ body.convention-center-page main {
   z-index: 5;
 }
 
-.convention-banner-title {
+.about-banner-grid {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.convention-banner-title,
+.about-banner-title {
   font-family: var(--font-serif);
   font-size: clamp(2.2rem, 4.4vw, 3.4rem);
   font-weight: 400;
   line-height: 1.06;
   letter-spacing: -0.015em;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   margin: 0;
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
 }
 
-.convention-banner-title .az-title-dark {
-  color: #FFFFFF;
-  display: block;
+.convention-banner-title .banner-title-line,
+.about-banner-title .banner-title-line,
+body.convention-center-page .about-banner-title .banner-title-line,
+.banner-title-line {
+  display: block !important;
+  white-space: nowrap;
 }
 
-.convention-banner-title .az-title-accent {
-  color: var(--color-logo-green);
-  display: block;
+.convention-banner-title .az-title-dark,
+.about-banner-title .az-title-dark,
+body.convention-center-page .about-banner-title .az-title-dark {
+  color: #FFFFFF !important;
+  display: block !important;
+}
+
+.convention-banner-title .az-title-accent,
+.about-banner-title .az-title-accent,
+body.convention-center-page .about-banner-title .az-title-accent {
+  color: var(--color-logo-green, #97C026) !important;
+  display: block !important;
+}
+
+@media (max-width: 1024px) {
+  .convention-banner-title,
+  .about-banner-title {
+    font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .convention-banner-section,
+  .about-banner-section {
+    height: auto;
+    min-height: 240px;
+    padding-top: 72px;
+    padding-bottom: 22px;
+  }
+
+  .convention-banner-title,
+  .about-banner-title {
+    font-size: clamp(1.75rem, 6.5vw, 2.5rem);
+    line-height: 1.08;
+  }
+}
+
+@media (max-width: 420px) {
+  .banner-title-line {
+    white-space: normal;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -148,7 +202,8 @@ body.convention-center-page .az-editorial-heading {
   color: #0E1710;
 }
 
-body.convention-center-page .az-title-dark {
+body.convention-center-page .az-editorial-heading .az-title-dark,
+body.convention-center-page :not(.about-banner-title):not(.convention-banner-title) > .az-title-dark {
   color: #000;
   font-weight: 400 !important;
   text-transform: uppercase !important;
@@ -159,7 +214,8 @@ body.convention-center-page .az-title-dark {
   display: inline-block;
 }
 
-body.convention-center-page .az-title-accent {
+body.convention-center-page .az-editorial-heading .az-title-accent,
+body.convention-center-page :not(.about-banner-title):not(.convention-banner-title) > .az-title-accent {
   color: #6D8B28 !important;
   font-weight: 400 !important;
   text-transform: uppercase !important;

@@ -2,6 +2,7 @@
 @push('style')
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/services.css') }}">
 @endpush 
+@section('body-class', 'services-page')
 @section('content')
   <main id="mainContent" class="editorial-services-main">
 

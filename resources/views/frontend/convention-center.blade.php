@@ -57,11 +57,11 @@
             <div class="convention-staggered-images">
               <!-- Back Image (Upper Left) -->
               <div class="staggered-img-back-wrap">
-                <img src="{{ $backImg }}" alt="Azeezia Convention Centre Showcase" class="staggered-img-back">
+                <img src="{{asset('assets/frontend/images/entrance1.webp')}}" alt="Azeezia Convention Centre Showcase" class="staggered-img-back">
               </div>
               <!-- Front Overlapping Image (Lower Right) -->
               <div class="staggered-img-front-wrap">
-                <img src="{{ $frontImg }}" alt="Azeezia Grand Banquet Stage and Lighting" class="staggered-img-front">
+                <img src="{{ asset('assets/frontend/images/car-parking2.webp') }}" alt="Azeezia Grand Banquet Stage and Lighting" class="staggered-img-front">
               </div>
             </div>
           </div>

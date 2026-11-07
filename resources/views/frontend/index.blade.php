@@ -439,7 +439,7 @@
                                             alt="Executive Boardroom Meeting Table" loading="lazy">
                                     </div>
                                     <div class="az-collage-thumb az-thumb-bottom">
-                                        <img src="{{ asset('assets/frontend/images/azeezia-catering.webp') }}"
+                                        <img src="{{ asset('assets/frontend/images/car-parking1.webp') }}"
                                             alt="Luxury Floral Centrepiece & Votives" loading="lazy">
                                     </div>
                                 </div>
